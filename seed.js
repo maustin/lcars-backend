@@ -1,11 +1,40 @@
 let database = require('./database');
 
-const buildCharactersTable = 'CREATE TABLE IF NOT EXISTS characters (name TEXT, species_id INTEGER, gender TEXT, dob TEXT, actor TEXT, image TEXT, status TEXT)';
-const buildSpeciesTable = 'CREATE TABLE IF NOT EXISTS species (name TEXT, origin TEXT)'
-const buildRankTable = 'CREATE TABLE IF NOT EXISTS ranks (name TEXT)';
-const buildShipTable = 'CREATE TABLE IF NOT EXISTS ships (name TEXT, class TEXT, registry TEXT, status TEXT, owner TEXT, operator TEXT)';
-const buildCharacterRankTable = 'CREATE TABLE IF NOT EXISTS character_rank (character_id INTEGER, rank_id INTEGER, effective_date TEXT)';
-const buildCharacterShipTable = 'CREATE TABLE IF NOT EXISTS character_ship (character_id INTEGER, ship_id INTEGER, effective_date TEXT)';
+const buildCharactersTable = 'CREATE TABLE IF NOT EXISTS characters ('
++ 'name TEXT NOT NULL, '
++ 'species_id INTEGER, '
++ 'gender TEXT, '
++ 'dob TEXT, '
++ 'actor TEXT, '
++ 'image TEXT, '
++ 'status TEXT, '
++ 'userGenerated INTEGER DEFAULT 0)';
+
+const buildSpeciesTable = 'CREATE TABLE IF NOT EXISTS species ('
++ 'name TEXT, '
++ 'origin TEXT, '
++ 'name_generator TEXT)';
+
+const buildRankTable = 'CREATE TABLE IF NOT EXISTS ranks ('
++ 'name TEXT, '
++ 'species_id INTEGER)';
+
+const buildShipTable = 'CREATE TABLE IF NOT EXISTS ships ('
++ 'name TEXT, '
++ 'class TEXT, '
++ 'registry TEXT, '
++ 'status TEXT, '
++ 'image TEXT)';
+
+const buildCharacterRankTable = 'CREATE TABLE IF NOT EXISTS character_rank ('
++ 'character_id INTEGER, '
++ 'rank_id INTEGER, '
++ 'effective_date TEXT)';
+
+const buildCharacterShipTable = 'CREATE TABLE IF NOT EXISTS character_ship ('
++ 'character_id INTEGER, '
++ 'ship_id INTEGER, '
++ 'effective_date TEXT)';
 
 const wipeCharacters = 'DELETE FROM characters';
 const wipeSpecies = 'DELETE FROM species';
@@ -14,9 +43,29 @@ const wipeShips = 'DELETE FROM ships';
 const wipeCharacterRanks = 'DELETE FROM character_rank';
 const wipeCharacterShips = 'DELETE FROM character_ship';
 
-const insertSpecies = 'INSERT INTO species VALUES ("Human", "Earth"), ("Klingon", "Qu\'noS"), ("Betazoid", "Betazed"), ("Bajoran", "Bajor"), ("Ferengi", "Ferenginar"), ("Changling", "Unknown"), ("Soong-type Android", "N/A"), ("Trill", "Trill"), ("Human Augment", "Earth")';
+// Consider adding Vulcan, Cardassian, Romulan, Borg
+// Name Generators:
+// https://donjon.bin.sh/scifi/name/star_trek.html
+// https://www.fantasynamegenerators.com/star-trek-betazoid-names.php
+const insertSpecies = 'INSERT INTO species VALUES '
++ '("Human", "Earth"), '
++ '("Klingon", "Qu\'noS"), '
++ '("Betazoid", "Betazed"), '
++ '("Bajoran", "Bajor"), '
++ '("Ferengi", "Ferenginar"), '
++ '("Changling", "Unknown"), '
++ '("Soong-type Android", "N/A"), '
++ '("Trill", "Trill"), '
++ '("Human Augment", "Earth")';
 
-const insertRanks = 'INSERT INTO ranks VALUES ("Ensign"), ("Lieutenant Junior Grade"), ("Lieutenant"), ("Lieutenant Commander"), ("Commander"), ("Captain"), ("Admiral")';
+const insertRanks = 'INSERT INTO ranks VALUES '
++ '("Ensign", 1), '
++ '("Lieutenant Junior Grade", 1), '
++ '("Lieutenant", 1), '
++ '("Lieutenant Commander", 1), '
++ '("Commander", 1), '
++ '("Captain", 1), '
++ '("Admiral", 1)';
 
 // Picard, Riker, Data, LaForge, Worf, Crusher, Troi, Yar, O'Brien, the boy
 // Sisko, Kira, Dax (both), Bashir, Odo, Quark
@@ -40,9 +89,12 @@ const insertCharacters = 'INSERT INTO characters VALUES '
 + '("Odo", 6, "", "Unknown", "Rene Auberjonois", "", "Resigned, 2375"), '
 + '("Quark", 5, "m", "", "Armin Shimerman", "", "Active")';
 
-// Enterprise D, DS9, Stargazer, 
-const insertShips = 'INSERT INTO ships VALUES ()';
-
+// Enterprise D, Enterprise E, DS9, Stargazer, Titan, Pegasus, Potemkin, Hood, Trieste, Victory, Saratoga
+// name, class, registry, status, image
+const insertShips = 'INSERT INTO ships VALUES '
++ '("USS Saratoga", "Miranda", "NCC-31911", "Destroyed, 2366", ""), '
++ '("USS Victory", "Constellation, "NCC-9754", "Active", ""), '
++ '';
 
 function runQuery(query) {
 	return new Promise((resolve, reject) => {
