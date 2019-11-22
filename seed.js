@@ -8,39 +8,42 @@ const buildCharactersTable = 'CREATE TABLE IF NOT EXISTS characters ('
 + 'actor TEXT, '
 + 'image TEXT, '
 + 'status TEXT, '
-+ 'userGenerated INTEGER DEFAULT 0, '
-+ 'FOREIGN KEY (species_id) REFERENCES species (oid))';
++ 'user_generated INTEGER DEFAULT 0, '
++ 'FOREIGN KEY (species_id) REFERENCES species (oid) ON UPDATE CASCADE)';
 
 const buildSpeciesTable = 'CREATE TABLE IF NOT EXISTS species ('
 + 'name TEXT, '
 + 'origin TEXT, '
-+ 'name_generator TEXT DEFAULT NULL)';
++ 'name_generator TEXT DEFAULT NULL, '
++ 'user_generated INTEGER DEFAULT 0)';
 
 const buildRankTable = 'CREATE TABLE IF NOT EXISTS ranks ('
 + 'name TEXT, '
 + 'species_id INTEGER, '
-+ 'FOREIGN KEY (species_id) REFERENCES species (oid))';
++ 'user_generated INTEGER DEFAULT 0, '
++ 'FOREIGN KEY (species_id) REFERENCES species (oid) ON UPDATE CASCADE)';
 
 const buildShipTable = 'CREATE TABLE IF NOT EXISTS ships ('
 + 'name TEXT, '
 + 'class TEXT, '
 + 'registry TEXT, '
 + 'status TEXT, '
-+ 'image TEXT)';
++ 'image TEXT, '
++ 'user_generated INTEGER DEFAULT 0)';
 
 const buildCharacterRankTable = 'CREATE TABLE IF NOT EXISTS character_rank ('
 + 'character_id INTEGER, '
 + 'rank_id INTEGER, '
 + 'effective_date TEXT, '
-+ 'FOREIGN KEY (character_id) REFERENCES characters (oid), '
-+ 'FOREIGN KEY (rank_id) REFERENCES ranks (oid))';
++ 'FOREIGN KEY (character_id) REFERENCES characters (oid) ON DELETE CASCADE ON UPDATE CASCADE, '
++ 'FOREIGN KEY (rank_id) REFERENCES ranks (oid) ON DELETE CASCADE ON UPDATE CASCADE)';
 
 const buildCharacterShipTable = 'CREATE TABLE IF NOT EXISTS character_ship ('
 + 'character_id INTEGER NOT NULL, '
 + 'ship_id INTEGER NOT NULL, '
 + 'effective_date TEXT, '
-+ 'FOREIGN KEY (character_id) REFERENCES characters (oid), '
-+ 'FOREIGN KEY (ship_id) REFERENCES ships (oid))';
++ 'FOREIGN KEY (character_id) REFERENCES characters (oid) ON DELETE CASCADE ON UPDATE CASCADE, '
++ 'FOREIGN KEY (ship_id) REFERENCES ships (oid) ON DELETE CASCADE ON UPDATE CASCADE)';
 
 const wipeCharacters = 'DELETE FROM characters';
 const wipeSpecies = 'DELETE FROM species';
@@ -49,33 +52,32 @@ const wipeShips = 'DELETE FROM ships';
 const wipeCharacterRanks = 'DELETE FROM character_rank';
 const wipeCharacterShips = 'DELETE FROM character_ship';
 
-// Consider adding Vulcan, Cardassian, Romulan, Borg
+// TODO: Consider adding Vulcan, Cardassian, Romulan, Borg
 // Name Generators:
 // https://donjon.bin.sh/scifi/name/star_trek.html
 // https://www.fantasynamegenerators.com/star-trek-betazoid-names.php
 const insertSpecies = 'INSERT INTO species VALUES '
-+ '("Human", "Earth", NULL), '
-+ '("Klingon", "Qu\'noS", NULL), '
-+ '("Betazoid", "Betazed", NULL), '
-+ '("Bajoran", "Bajor", NULL), '
-+ '("Ferengi", "Ferenginar", NULL), '
-+ '("Changling", "Unknown", NULL), '
-+ '("Soong-type Android", "N/A", NULL), '
-+ '("Trill", "Trill", NULL), '
-+ '("Human Augment", "Earth", NULL)';
++ '("Human", "Earth", NULL, 0), '
++ '("Klingon", "Qu\'noS", NULL, 0), '
++ '("Betazoid", "Betazed", NULL, 0), '
++ '("Bajoran", "Bajor", NULL, 0), '
++ '("Ferengi", "Ferenginar", NULL, 0), '
++ '("Changling", "Unknown", NULL, 0), '
++ '("Soong-type Android", "N/A", NULL, 0), '
++ '("Trill", "Trill", NULL, 0), '
++ '("Human Augment", "Earth", NULL, 0)';
 
+// TODO: Add non-human ranks (at least Bajoran, Civilian)
 const insertRanks = 'INSERT INTO ranks VALUES '
-+ '("Ensign", 1), '
-+ '("Lieutenant Junior Grade", 1), '
-+ '("Lieutenant", 1), '
-+ '("Lieutenant Commander", 1), '
-+ '("Commander", 1), '
-+ '("Captain", 1), '
-+ '("Admiral", 1)';
++ '("Ensign", 1, 0), '
++ '("Lieutenant Junior Grade", 1, 0), '
++ '("Lieutenant", 1, 0), '
++ '("Lieutenant Commander", 1, 0), '
++ '("Commander", 1, 0), '
++ '("Captain", 1, 0), '
++ '("Admiral", 1, 0)';
 
-// Picard, Riker, Data, LaForge, Worf, Crusher, Troi, Yar, O'Brien, the boy
-// Sisko, Kira, Dax (both), Bashir, Odo, Quark
-// name, sp_id, gender, dob, actor, image, status
+// name, sp_id, gender, dob, actor, image, status, user_generated
 const insertCharacters = 'INSERT INTO characters VALUES '
 + '("Jean-Luc Picard", 1, "m", "July 13, 2305", "Patrick Stewart", "", "Active", 0), '
 + '("William T. Riker", 1, "m", "2335", "Jonathan Frakes", "", "Active", 0), '
@@ -95,19 +97,18 @@ const insertCharacters = 'INSERT INTO characters VALUES '
 + '("Odo", 6, "", "Unknown", "Rene Auberjonois", "", "Resigned, 2375", 0), '
 + '("Quark", 5, "m", "", "Armin Shimerman", "", "Active", 0)';
 
-// Enterprise D, Enterprise E, DS9, Stargazer, Pegasus, Potemkin, Hood, Trieste, Victory, Saratoga
 // name, class, registry, status, image
 const insertShips = 'INSERT INTO ships VALUES '
-+ '("USS Enterprise", "Galaxy-class", "NCC-1701-D", "Destroyed, 2371", ""), '
-+ '("USS Enterprise", "Sovereign-class", "NCC-1701-E", "Active", ""), '
-+ '("Deep Space 9", "Terok Nor-type", "", "Active", ""), '
-+ '("USS Stargazer", "Constellation-class", "NCC-2893", "Recovered, 2364", ""), '
-+ '("USS Pegasus", "Oberth-class", "NCC-53847", "Wrecked, 2358", ""), '
-+ '("USS Potemkin", "Excelsior-class", "NCC-2005", "Active", ""), '
-+ '("USS Hood", "Excelsior-class", "NCC-42296", "Active", ""), '
-+ '("USS Trieste", "Merced-class", "NCC-37124", "Active", ""), '
-+ '("USS Victory", "Constellation-class", "NCC-9754", "Active", ""), '
-+ '("USS Saratoga", "Miranda-class", "NCC-31911", "Destroyed, 2366", "")';
++ '("USS Enterprise", "Galaxy-class", "NCC-1701-D", "Destroyed, 2371", "", 0), '
++ '("USS Enterprise", "Sovereign-class", "NCC-1701-E", "Active", "", 0), '
++ '("Deep Space 9", "Terok Nor-type", "", "Active", "", 0), '
++ '("USS Stargazer", "Constellation-class", "NCC-2893", "Recovered, 2364", "", 0), '
++ '("USS Pegasus", "Oberth-class", "NCC-53847", "Wrecked, 2358", "", 0), '
++ '("USS Potemkin", "Excelsior-class", "NCC-2005", "Active", "", 0), '
++ '("USS Hood", "Excelsior-class", "NCC-42296", "Active", "", 0), '
++ '("USS Trieste", "Merced-class", "NCC-37124", "Active", "", 0), '
++ '("USS Victory", "Constellation-class", "NCC-9754", "Active", "", 0), '
++ '("USS Saratoga", "Miranda-class", "NCC-31911", "Destroyed, 2366", "", 0)';
 
 function runQuery(query) {
 	return new Promise((resolve, reject) => {
@@ -126,10 +127,9 @@ function runQuery(query) {
 }
 
 // For now, not using the wipes. Just trash the database if you wanna rebuild.
-let queries = [buildSpeciesTable, buildRankTable,
-		buildShipTable, buildCharactersTable,
-		insertSpecies, insertRanks,
-		insertShips, insertCharacters];
+let queries = [buildSpeciesTable, buildRankTable, buildShipTable,
+		buildCharactersTable, buildCharacterShipTable, buildCharacterRankTable,
+		insertSpecies, insertRanks, insertShips, insertCharacters];
 
 async function runQueries() {
 	for (const query of queries) {
