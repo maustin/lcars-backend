@@ -18,7 +18,8 @@ function remove(id, callback) {
 
 // create
 function create(parameters, callback) {
-	database.run('INSERT INTO species VALUES(?, ?, NULL)', [parameters.name, parameters.origin], callback);
+	database.run('INSERT INTO species VALUES(?, ?, NULL, 1)',
+		[parameters.name, parameters.origin], callback);
 }
 
 // update
@@ -40,7 +41,7 @@ function update(parameters, callback) {
 database.all('PRAGMA table_info(species)', (error, rows) => {
 	if (error) console.error(error);
 	else {
-		rows.forEach(item => COLUMNS.push(item));
+		rows.forEach(item => COLUMN_DATA.push(item));
 	}
 });
 

@@ -18,7 +18,9 @@ function remove(id, callback) {
 
 // create
 function create(parameters, callback) {
-	database.run('INSERT INTO ships VALUES(?, ?, NULL)', [parameters.name, parameters.origin], callback);
+	database.run('INSERT INTO ships VALUES(?, ?, ?, ?, ?, 1)',
+		[parameters.name, parameters.class, parameters.registry,
+		parameters.status, parameters.image], callback);
 }
 
 // update
@@ -40,7 +42,7 @@ function update(parameters, callback) {
 database.all('PRAGMA table_info(ships)', (error, rows) => {
 	if (error) console.error(error);
 	else {
-		rows.forEach(item => COLUMNS.push(item));
+		rows.forEach(item => COLUMN_DATA.push(item));
 	}
 });
 
