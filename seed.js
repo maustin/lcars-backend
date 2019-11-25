@@ -69,13 +69,17 @@ const insertSpecies = 'INSERT INTO species VALUES '
 
 // TODO: Add non-human ranks (at least Bajoran, Civilian)
 const insertRanks = 'INSERT INTO ranks VALUES '
++ '("Civilian", 0, 0), '
 + '("Ensign", 1, 0), '
 + '("Lieutenant Junior Grade", 1, 0), '
 + '("Lieutenant", 1, 0), '
 + '("Lieutenant Commander", 1, 0), '
 + '("Commander", 1, 0), '
 + '("Captain", 1, 0), '
-+ '("Admiral", 1, 0)';
++ '("Admiral", 1, 0), '
++ '("Petty Officer", 1, 0), '
++ '("Chief Petty Officer", 1, 0), '
++ '("Senior Chief Petty Officer", 1, 0)';
 
 // name, sp_id, gender, dob, actor, image, status, user_generated
 const insertCharacters = 'INSERT INTO characters VALUES '
@@ -85,7 +89,7 @@ const insertCharacters = 'INSERT INTO characters VALUES '
 + '("Geordi LaForge", 1, "m", "February 16, 2335", "LeVar Burton", "", "Active", 0), '
 + '("Worf", 2, "m", "2340", "Michael Dorn", "", "Active", 0), '
 + '("Beverly Crusher", 1, "f", "October 13, 2324", "Gates McFadden", "", "Active", 0), '
-+ '("Deana Troi", 3, "f", "March 29, 2336", "Marina Sirtis", "", "Active", 0), '
++ '("Deanna Troi", 3, "f", "March 29, 2336", "Marina Sirtis", "", "Active", 0), '
 + '("Natasha Yar", 1, "f", "2337", "Denise Crosby", "", "Deceased, 2364", 0), '
 + '("Miles O\'Brien", 1, "m", "September 2328", "Colm Meaney", "", "Active", 0), '
 + '("Wesley Crusher", 1, "m", "2348", "Wil Wheaton", "", "Active", 0), '
@@ -108,7 +112,79 @@ const insertShips = 'INSERT INTO ships VALUES '
 + '("USS Hood", "Excelsior-class", "NCC-42296", "Active", "", 0), '
 + '("USS Trieste", "Merced-class", "NCC-37124", "Active", "", 0), '
 + '("USS Victory", "Constellation-class", "NCC-9754", "Active", "", 0), '
-+ '("USS Saratoga", "Miranda-class", "NCC-31911", "Destroyed, 2366", "", 0)';
++ '("USS Saratoga", "Miranda-class", "NCC-31911", "Destroyed, 2366", "", 0)'
++ '("USS Livingston", "", "", "", "", 0), '
++ '("USS Okinawa", "", "", "", "", 0), '
++ '("USS Titan", "Luna-class", "NCC-80102", "Active", "", 0)';
+//sf medical?
+
+// char id, rank id, eff date
+const insertCharacterRanks = 'INSERT INTO character_rank VALUES '
++ '(1, 2, "2327"), '
++ '(1, 7, "2333"), '
++ '(2, 2, "2357"), '
++ '(2, 4, "2360"), '
++ '(2, 5, "2361"), '
++ '(2, 6, "2364"), '
++ '(2, 7, "2379"), '
++ '(3, 2, "2348"), '
++ '(3, 4, "2351"), '
++ '(3, 5, "2363"), '
++ '(4, 2, "2357"), '
++ '(4, 4, "2365"), '
++ '(4, 5, "2366"), '
++ '(5, 3, "2364"), '
++ '(5, 4, "2366"), '
++ '(5, 5, "2371"), '
++ '(6, 2, "2350"), '
++ '(6, 6, "2362"), '
++ '(7, 2, "2359"), '
++ '(7, 5, "2364"), '
++ '(7, 6, "2370"), '
++ '(8, 4, "2364"), '
++ '(9, 10, "2364"), '
++ '(9, 11, "2369"), '
++ '(10, 3, "2379"), '
++ '(11, 2, "2354"), '
++ '(11, 4, "2357"), '
++ '(11, 5, "2362"), '
++ '(11, 6, "2369"), '
++ '(11, 7, "2371")';
+
+// char id, ship id, eff date
+const insertCharacterShips = 'INSERT INTO character_ship VALUES '
++ '(1, 4, "2333"), '
++ '(1, 1, "2364"), '
++ '(1, 2, "2372"), '
++ '(2, 5, "2357"), '
++ '(2, 6, "2361"), '
++ '(2, 7, "2363"), '
++ '(2, 1, "2364"), '
++ '(2, 2, "2372"), '
++ '(2, 13, "2379"), '
++ '(3, 8, "2349"), '
++ '(3, 1, "2364"), '
++ '(3, 2, "2372"), '
++ '(4, 9, "2358"), '
++ '(4, 7, "2361"), '
++ '(4, 1, "2364"), '
++ '(4, 2, "2372"), '
++ '(5, 1, "2364"), '
++ '(5, 2, "2372"), '
++ '(6, 1, "2364"), '
++ '(6, 2, "2372"), '
++ '(7, 1, "2364"), '
++ '(7, 2, "2372"), '
++ '(7, 13, "2379"), '
++ '(8, 1, "2364"), '
++ '(9, 1, "2364"), '
++ '(9, 3, "2369"), '
++ '(10, 1, "2364"), '
++ '(11, 11, "2357"), '
++ '(11, 12, "2362"), '
++ '(11, 10, "2365"), '
++ '(11, 3, "2369")';
+
 
 function runQuery(query) {
 	return new Promise((resolve, reject) => {
@@ -129,7 +205,8 @@ function runQuery(query) {
 // For now, not using the wipes. Just trash the database if you wanna rebuild.
 let queries = [buildSpeciesTable, buildRankTable, buildShipTable,
 		buildCharactersTable, buildCharacterShipTable, buildCharacterRankTable,
-		insertSpecies, insertRanks, insertShips, insertCharacters];
+		insertSpecies, insertRanks, insertShips, insertCharacters,
+		insertCharacterRanks, insertCharacterShips];
 
 async function runQueries() {
 	for (const query of queries) {
