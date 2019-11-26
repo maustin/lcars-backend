@@ -1,17 +1,6 @@
 const COLUMN_NAMES = ["id", "name", "species_id", "gender", "dob", "actor", "image", "status", "user_generated"];
 
-let Sequelize = require('sequelize');
-let orm = require('../../sequelize');
-let table = orm.define('characters', {
-	id: { type: Sequelize.INTEGER, primaryKey: true },
-	name: Sequelize.STRING,
-	species_id: Sequelize.INTEGER,
-	gender: Sequelize.STRING,
-	dob: Sequelize.STRING,
-	actor: Sequelize.STRING,
-	image: Sequelize.STRING,
-	user_generated: Sequelize.INTEGER
-}, { timestamps: false });
+let table = require('../../sequelize').characters;
 
 function readAll(callback) {
 	table.findAll({ raw: true }).then(rows => {

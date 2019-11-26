@@ -4,14 +4,7 @@
 // hardcoded in the table define.
 const COLUMN_NAMES = ["id", "name", "species_id", "user_generated"];
 
-let Sequelize = require('sequelize');
-let orm = require('../../sequelize');
-let table = orm.define('ranks', {
-	id: { type: Sequelize.INTEGER, primaryKey: true },
-	name: Sequelize.STRING,
-	species_id: Sequelize.INTEGER,
-	user_generated: Sequelize.INTEGER
-}, { timestamps: false });
+let table = require('../../sequelize').ranks;
 
 function readAll(callback) {
 	table.findAll({ raw: true }).then(rows => {

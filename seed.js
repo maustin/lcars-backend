@@ -9,8 +9,8 @@ const buildCharactersTable = 'CREATE TABLE IF NOT EXISTS characters ('
 + 'actor TEXT, '
 + 'image TEXT, '
 + 'status TEXT, '
-+ 'user_generated INTEGER DEFAULT 0)';
-//+ 'FOREIGN KEY (species_id) REFERENCES species (oid) ON UPDATE CASCADE)';
++ 'user_generated INTEGER DEFAULT 0, '
++ 'FOREIGN KEY (species_id) REFERENCES species (id))';
 
 const buildSpeciesTable = 'CREATE TABLE IF NOT EXISTS species ('
 + 'id INTEGER PRIMARY KEY, '
@@ -23,8 +23,8 @@ const buildRankTable = 'CREATE TABLE IF NOT EXISTS ranks ('
 + 'id INTEGER PRIMARY KEY, '
 + 'name TEXT, '
 + 'species_id INTEGER, '
-+ 'user_generated INTEGER DEFAULT 0)';
-//+ 'FOREIGN KEY (species_id) REFERENCES species (oid) ON UPDATE CASCADE)';
++ 'user_generated INTEGER DEFAULT 0, '
++ 'FOREIGN KEY (species_id) REFERENCES species (id))';
 
 const buildShipTable = 'CREATE TABLE IF NOT EXISTS ships ('
 + 'id INTEGER PRIMARY KEY, '
@@ -57,6 +57,7 @@ const wipeRanks = 'DELETE FROM ranks';
 const wipeShips = 'DELETE FROM ships';
 const wipeCharacterRanks = 'DELETE FROM character_rank';
 const wipeCharacterShips = 'DELETE FROM character_ship';
+
 
 // TODO: Consider adding Vulcan, Cardassian, Romulan, Borg
 // Name Generators:

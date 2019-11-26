@@ -1,14 +1,6 @@
 const COLUMN_NAME = ["id", "name", "origin", "name_generator", "user_generated"];
 
-let Sequelize = require('sequelize');
-let orm = require('../../sequelize');
-let table = orm.define('species', {
-	id: { type: Sequelize.INTEGER, primaryKey: true },
-	name: Sequelize.STRING,
-	origin: Sequelize.STRING,
-	name_generator: Sequelize.STRING,
-	user_generated: Sequelize.INTEGER
-}, { timestamps: false });
+let table = require('../../sequelize').species;
 
 function readAll(callback) {
 	table.findAll({ raw: true }).then(rows => {

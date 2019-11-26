@@ -1,13 +1,6 @@
 const COLUMN_NAMES = ["id", "character_id", "rank_id", "effective_date"];
 
-let Sequelize = require('sequelize');
-let orm = require('../../sequelize');
-let table = orm.define('character_rank', {
-	id: { type: Sequelize.INTEGER, primaryKey: true },
-	character_id: Sequelize.INTEGER,
-	rank_id: Sequelize.INTEGER,
-	effective_date: Sequelize.STRING
-}, { timestamps: false });
+let table = require('../../sequelize').characterRanks;
 
 function readAll(callback) {
 	table.findAll({ raw: true }).then(rows => {

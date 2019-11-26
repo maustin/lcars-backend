@@ -1,8 +1,21 @@
 let Sequelize = require('sequelize');
-let orm = new Sequelize('database',
+let sequelize = new Sequelize('database',
 	null, null, { storage: './database.db', dialect: 'sqlite', logging: false });
 
-orm
+let models = ['characterRanks', 'characters', 'characterShips', 'ranks', 'ships', 'species'];
+//let models = ['characters'];
+let db = {};
+
+models.forEach(modelName => {
+	db[modelName] = sequelize.import('models/' + modelName + '/ormModelDef');
+});
+
+/*(m => {
+	m.species.belongsTo(m.characters);
+	m.characters.
+})(module.exports);*/
+
+sequelize
 .authenticate()
 .then(() => {
 	console.log('Sequelize connected');
@@ -11,4 +24,7 @@ orm
 	console.error('Sequelize failed to connect:', err);
 });
 
-module.exports = orm;
+//module.exports = orm;
+db.orm = sequelize;
+
+module.exports = db;
