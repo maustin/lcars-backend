@@ -1,15 +1,12 @@
-// While the raw SQL versions get column names from the db,
-// in sequelize we need to know the names ahead of time for the mapping.
-// So there's no reason to populate it dynamically; the fields are already
-// hardcoded in the table define.
-const COLUMN_DATA = ["id", "name", "species_id", "user_generated"];
+const COLUMN_DATA = ["id", "name", "origin", "name_generator", "user_generated"];
 
 let Sequelize = require('sequelize');
 let orm = require('../../sequelize');
-let table = orm.define('ranks', {
+let table = orm.define('species', {
 	id: { type: Sequelize.INTEGER, primaryKey: true },
 	name: Sequelize.STRING,
-	species_id: Sequelize.INTEGER,
+	origin: Sequelize.STRING,
+	name_generator: Sequelize.STRING,
 	user_generated: Sequelize.INTEGER
 }, { timestamps: false });
 
@@ -17,7 +14,7 @@ function readAll(callback) {
 	table.findAll({ raw: true }).then(rows => {
 		callback(null, rows);
 	}).catch(error => {
-		console.error('SEQUELIZE ranks.readAll ERROR:', error);
+		console.error('SEQUELIZE species.readAll ERROR:', error);
 		callback(error);
 	});
 }
@@ -25,12 +22,9 @@ function readAll(callback) {
 function readOne(id, callback) {
 	//table.findByPk(id).then(row => {
 	table.findOne({ where: { id: id }, raw: true }).then(row => {
-		//console.log(row.get({ plain: true }));
-		//console.log([row]);
-		// wrapping this in an array to match raw sql return 
 		callback(null, [row]);
 	}).catch(error => {
-		console.error('SEQUELIZE ranks.readOne ERROR:', error);
+		console.error('SEQUELIZE species.readOne ERROR:', error);
 		callback(error);
 	});
 }
@@ -38,9 +32,9 @@ function readOne(id, callback) {
 // delete
 function remove(id, callback) {
 	table.destroy({ where: { id: id }}).then(numDeleted => {
-		callback(null, numDeleted);// returns 0 if nothing deleted
+		callback(null, numDeleted);
 	}).catch(error => {
-		console.error('SEQUELIZE ranks.remove ERROR:', error);
+		console.error('SEQUELIZE species.remove ERROR:', error);
 		callback(error);
 	});
 }
@@ -49,14 +43,12 @@ function remove(id, callback) {
 function create(parameters, callback) {
 	table.create({
 		name: parameters.name,
-		species_id: parameters.species_id,
+		origin: parameters.origin,
 		user_generated: 1
 	}).then(row => {
-		// raw sql doesn't return the result, so we won't either
-		//callback(null, [row.get({ plain: true })]);
 		callback(null);
 	}).catch(error => {
-		console.error('SEQUELIZE ranks.create ERROR:', error);
+		console.error('SEQUELIZE species.create ERROR:', error);
 		callback(error);
 	});
 }
@@ -77,7 +69,7 @@ function update(parameters, callback) {
 	}).then(rowsUpdated => {
 		callback(null);
 	}).catch(error => {
-		console.error('SEQUELIZE ranks.update ERROR:', error);
+		console.error('SEQUELIZE species.update ERROR:', error);
 		callback(error);
 	});
 }
