@@ -1,9 +1,16 @@
 const COLUMN_NAMES = ["id", "name", "species_id", "gender", "dob", "actor", "image", "status", "user_generated"];
 
-let table = require('../../sequelize').characters;
+let orm = require('../../sequelize');
+let table = orm.characters;
 
 function readAll(callback) {
-	table.findAll({ raw: true }).then(rows => {
+	table.findAll({
+		raw: true,
+		include: [{
+			model: orm.species,
+			attributes: ['name']
+		}]
+	}).then(rows => {
 		callback(null, rows);
 	}).catch(error => {
 		console.error('SEQUELIZE characters.readAll ERROR:', error);
@@ -13,7 +20,15 @@ function readAll(callback) {
 
 function readOne(id, callback) {
 	//table.findByPk(id).then(row => {
-	table.findOne({ where: { id: id }, raw: true }).then(row => {
+	table.findOne({
+		where: { id: id },
+		raw: true,
+		include: [{
+			model: orm.species,
+			attributes: ['name']
+		}]
+	}).then(row => {
+		console.log(row)
 		callback(null, [row]);
 	}).catch(error => {
 		console.error('SEQUELIZE characters.readOne ERROR:', error);

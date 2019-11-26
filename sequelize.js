@@ -10,10 +10,7 @@ models.forEach(modelName => {
 	db[modelName] = sequelize.import('models/' + modelName + '/ormModelDef');
 });
 
-/*(m => {
-	m.species.belongsTo(m.characters);
-	m.characters.
-})(module.exports);*/
+db.characters.belongsTo(db.species);
 
 sequelize
 .authenticate()

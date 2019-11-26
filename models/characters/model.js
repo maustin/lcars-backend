@@ -3,12 +3,12 @@ let database = require('../../database');
 
 // get all
 function readAll(callback) {
-	database.all('SELECT * FROM characters', callback);
+	database.all('SELECT characters.*, species.name AS "species.name" FROM characters JOIN species ON characters.species_id = species.id', callback);
 }
 
 // get single
 function readOne(id, callback) {
-	database.all('SELECT * FROM characters WHERE id = ?', [id], callback);
+	database.all('SELECT characters.*, species.name AS "species.name" FROM characters JOIN species ON characters.species_id = species.id WHERE characters.id = ?', [id], callback);
 }
 
 // delete
