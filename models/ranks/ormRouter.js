@@ -1,11 +1,10 @@
 let express = require('express');
-let model = require('./model');
+let model = require('./ormModel');
 
 let router = express.Router();
 
 router.get('/', (request, response, next) => {
 	model.readAll((error, data) => {
-		console.log(data);
 		if (error) next(error);
 		else response.json(data);
 	});
@@ -13,7 +12,6 @@ router.get('/', (request, response, next) => {
 
 router.get('/:id', (request, response, next) => {
 	model.readOne(request.params.id, (error, data) => {
-		console.log(data);
 		if (error) next(error);
 		else response.json(data);
 	});
@@ -22,22 +20,6 @@ router.get('/:id', (request, response, next) => {
 // delete
 router.delete('/:id', (request, response, next) => {
 	model.remove(request.params.id, (error, data) => {
-		if (error) next(error);
-		else response.sendStatus(200);
-	});
-});
-
-// create
-router.post('/', (request, response, next) => {
-	model.create(request.body, (error, data) => {
-		if (error) next(error);
-		else response.sendStatus(200);
-	});
-});
-
-// update
-router.put('/', (request, response, next) => {
-	model.update(request.body, (error, data) => {
 		if (error) next(error);
 		else response.sendStatus(200);
 	});
