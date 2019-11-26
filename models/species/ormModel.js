@@ -1,4 +1,4 @@
-const COLUMN_DATA = ["id", "name", "origin", "name_generator", "user_generated"];
+const COLUMN_NAME = ["id", "name", "origin", "name_generator", "user_generated"];
 
 let Sequelize = require('sequelize');
 let orm = require('../../sequelize');
@@ -57,7 +57,7 @@ function update(parameters, callback) {
 	let id = parameters.id;
 	let updateObject = {};
 	
-	COLUMN_DATA.forEach(column => {
+	COLUMN_NAME.forEach(column => {
 		if (parameters[column] != undefined) {
 			updateObject[column] = parameters[column];
 		}
