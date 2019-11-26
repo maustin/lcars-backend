@@ -3,22 +3,22 @@ let database = require('../../database');
 
 // get all
 function readAll(callback) {
-	database.all('SELECT oid AS id, * FROM ranks', callback);
+	database.all('SELECT * FROM ranks', callback);
 }
 
 // get single
 function readOne(id, callback) {
-	database.all('SELECT oid AS id, * FROM ranks WHERE oid = ?', [id], callback);
+	database.all('SELECT * FROM ranks WHERE id = ?', [id], callback);
 }
 
 // delete
 function remove(id, callback) {
-	database.run('DELETE FROM ranks WHERE oid = ?', [id], callback);
+	database.run('DELETE FROM ranks WHERE id = ?', [id], callback);
 }
 
 // create
 function create(parameters, callback) {
-	database.run('INSERT INTO ranks VALUES(?, ?, 1)',
+	database.run('INSERT INTO ranks ("name", "species_id", "user_generated") VALUES(?, ?, 1)',
 		[parameters.name, parameters.species_id], callback);
 }
 
@@ -35,7 +35,7 @@ function update(parameters, callback) {
 	});
 	paramFields.push(id);
 
-	database.run('UPDATE ranks SET ' + setFields.join(', ') + ' WHERE oid = ?', paramFields, callback);
+	database.run('UPDATE ranks SET ' + setFields.join(', ') + ' WHERE id = ?', paramFields, callback);
 }
 
 database.all('PRAGMA table_info(ranks)', (error, rows) => {
