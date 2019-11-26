@@ -25,4 +25,20 @@ router.delete('/:id', (request, response, next) => {
 	});
 });
 
+// create
+router.post('/', (request, response, next) => {
+	model.create(request.body, (error, data) => {
+		if (error) next(error);
+		else response.sendStatus(200);
+	});
+});
+
+// update
+router.put('/', (request, response, next) => {
+	model.update(request.body, (error, data) => {
+		if (error) next(error);
+		else response.sendStatus(200);
+	});
+});
+
 module.exports = router;
