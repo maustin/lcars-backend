@@ -3,12 +3,12 @@ let database = require('../../database');
 
 // get all
 function readAll(callback) {
-	database.all('SELECT * FROM ranks', callback);
+	database.all('SELECT ranks.*, species.name AS "species.name" FROM ranks JOIN species ON ranks.species_id = species.id', callback);
 }
 
 // get single
 function readOne(id, callback) {
-	database.all('SELECT * FROM ranks WHERE id = ?', [id], callback);
+	database.all('SELECT ranks.*, species.name AS "species.name" FROM ranks JOIN species ON ranks.species_id = species.id WHERE ranks.id = ?', [id], callback);
 }
 
 // delete

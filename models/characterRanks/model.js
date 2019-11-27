@@ -13,7 +13,7 @@ function readOne(id, callback) {
 
 // get all with character id
 function readAllWithCharacterId(id, callback) {
-	database.all('SELECT character_rank.id AS id, ranks.name, ranks.id AS rank_id, effective_date FROM character_rank JOIN ranks ON character_rank.rank_id = ranks.id WHERE character_id = ?', [id], callback);
+	database.all('SELECT character_rank.*, ranks.name AS "rank.name", ranks.id AS "rank.id" FROM character_rank JOIN ranks ON character_rank.rank_id = ranks.id WHERE character_id = ?', [id], callback);
 }
 
 // delete

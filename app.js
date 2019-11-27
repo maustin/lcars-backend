@@ -12,6 +12,7 @@ let ormSpeciesRouter = require('./models/species/ormRouter');
 let ormRanksRouter = require('./models/ranks/ormRouter');
 let ormShipsRouter = require('./models/ships/ormRouter');
 let ormCharactersRouter = require('./models/characters/ormRouter');
+let ormCharacterRanksRouter = require('./models/characterRanks/ormRouter');
 
 
 app.use(express.json());
@@ -27,6 +28,7 @@ app.use('/orm/species', ormSpeciesRouter);
 app.use('/orm/ranks', ormRanksRouter);
 app.use('/orm/ships', ormShipsRouter);
 app.use('/orm/characters', ormCharactersRouter);
+app.use('/orm/characterranks', ormCharacterRanksRouter);
 
 app.get('/', (request, response, next) => {
 	response.send("Ohai!");

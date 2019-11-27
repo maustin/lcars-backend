@@ -4,10 +4,17 @@
 // hardcoded in the table define.
 const COLUMN_NAMES = ["id", "name", "species_id", "user_generated"];
 
-let table = require('../../sequelize').ranks;
+let orm = require('../../sequelize');
+let table = orm.ranks;
 
 function readAll(callback) {
-	table.findAll({ raw: true }).then(rows => {
+	table.findAll({
+		raw: true,
+		include: [{
+			model: orm.species,
+			attributes: ['name']
+		}]
+	}).then(rows => {
 		callback(null, rows);
 	}).catch(error => {
 		console.error('SEQUELIZE ranks.readAll ERROR:', error);
@@ -17,7 +24,14 @@ function readAll(callback) {
 
 function readOne(id, callback) {
 	//table.findByPk(id).then(row => {
-	table.findOne({ where: { id: id }, raw: true }).then(row => {
+	table.findOne({
+		where: { id: id },
+		raw: true,
+		include: [{
+			model: orm.species,
+			attributes: ['name']
+		}]
+	}).then(row => {
 		//console.log(row.get({ plain: true }));
 		//console.log([row]);
 		// wrapping this in an array to match raw sql return 

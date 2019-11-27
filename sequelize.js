@@ -3,7 +3,6 @@ let sequelize = new Sequelize('database',
 	null, null, { storage: './database.db', dialect: 'sqlite', logging: false });
 
 let models = ['characterRanks', 'characters', 'characterShips', 'ranks', 'ships', 'species'];
-//let models = ['characters'];
 let db = {};
 
 models.forEach(modelName => {
@@ -11,6 +10,9 @@ models.forEach(modelName => {
 });
 
 db.characters.belongsTo(db.species);
+db.ranks.belongsTo(db.species);
+db.characterRanks.belongsTo(db.characters);
+db.characterRanks.belongsTo(db.ranks);
 
 sequelize
 .authenticate()
@@ -21,7 +23,6 @@ sequelize
 	console.error('Sequelize failed to connect:', err);
 });
 
-//module.exports = orm;
 db.orm = sequelize;
 
 module.exports = db;

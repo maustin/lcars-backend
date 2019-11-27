@@ -1,6 +1,7 @@
 const COLUMN_NAMES = ["id", "character_id", "rank_id", "effective_date"];
 
-let table = require('../../sequelize').characterRanks;
+let orm = require('../../sequelize');
+let table = orm.characterRanks;
 
 function readAll(callback) {
 	table.findAll({ raw: true }).then(rows => {
@@ -23,9 +24,19 @@ function readOne(id, callback) {
 
 // get all with character id
 function readAllWithCharacterId(id, callback) {
-	//table.findAll({ where: { }, raw: true})
-
-	//database.all('SELECT character_rank.id AS id, ranks.name, ranks.id AS rank_id, effective_date FROM character_rank JOIN ranks ON character_rank.rank_id = ranks.id WHERE character_id = ?', [id], callback);
+	table.findAll({
+		where: { character_id: id },
+		raw: true,
+		include: [{
+			model: orm.ranks,
+			attributes: ['name', 'id']
+		}]
+	}).then(rows => {
+		callback(null, rows);
+	}).catch(error => {
+		console.error('SEQUELIZE character_rank.readAllWithCharacterId ERROR:', error);
+		callback(error);
+	});
 }
 
 // delete

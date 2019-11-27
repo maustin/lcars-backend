@@ -1,6 +1,7 @@
 const COLUMN_NAMES = ["id", "name", "class", "registry", "status", "image", "user_generated"];
 
-let table = require('../../sequelize').ships;
+let orm = require('../../sequelize');
+let table = orm.ships;
 
 function readAll(callback) {
 	table.findAll({ raw: true }).then(rows => {

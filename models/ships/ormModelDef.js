@@ -7,5 +7,9 @@ module.exports = (sequelize, DataTypes) => {
 		status: DataTypes.STRING,
 		image: DataTypes.STRING,
 		user_generated: DataTypes.INTEGER
-	}, { timestamps: false });
+	}, {
+		timestamps: false,
+		freezeTableName: true,
+		underscored: true
+	});
 };
