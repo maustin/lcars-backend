@@ -13,6 +13,7 @@ let ormRanksRouter = require('./models/ranks/ormRouter');
 let ormShipsRouter = require('./models/ships/ormRouter');
 let ormCharactersRouter = require('./models/characters/ormRouter');
 let ormCharacterRanksRouter = require('./models/characterRanks/ormRouter');
+let ormCharacterShipsRouter = require('./models/characterShips/ormRouter');
 
 
 app.use(express.json());
@@ -29,12 +30,10 @@ app.use('/orm/ranks', ormRanksRouter);
 app.use('/orm/ships', ormShipsRouter);
 app.use('/orm/characters', ormCharactersRouter);
 app.use('/orm/characterranks', ormCharacterRanksRouter);
+app.use('/orm/characterships', ormCharacterShipsRouter);
 
 app.get('/', (request, response, next) => {
 	response.send("Ohai!");
 });
-
-// test
-//let orm = require('./sequelize');
 
 module.exports = app;

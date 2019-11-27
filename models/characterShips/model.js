@@ -13,12 +13,15 @@ function readOne(id, callback) {
 
 // get all with character id
 function readAllWithCharacterId(id, callback) {
-	database.all('SELECT character_ship.id, ships.id AS ship_id, ships.name, ships.registry, effective_date FROM character_ship JOIN ships ON character_ship.ship_id = ships.id WHERE character_id = ?', [id], callback);
+	// Sequelize is doing **** with ship table name in it's response
+	// to this query, turning "ships.X" into "ship.X". So to normalize the results,
+	// we'll make the SQL version match it. :/
+	database.all('SELECT character_ship.*, ships.name AS "ship.name", ships.registry AS "ship.registry", effective_date FROM character_ship JOIN ships ON character_ship.ship_id = ships.id WHERE character_id = ?', [id], callback);
 }
 
 // get all with ship id
 function readAllWithShipId(id, callback) {
-	database.all('SELECT character_ship.id, characters.id AS character_id, characters.name, effective_date FROM character_ship JOIN characters ON character_ship.character_id = characters.id WHERE ship_id = ?', [id], callback);
+	database.all('SELECT character_ship.id, characters.id AS character_id, characters.name, effective_date FROM character_ship JOIN characters ON character_ship.character_id = characters.id WHERE ship_id = ?', [id], callback);	
 }
 
 // delete

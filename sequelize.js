@@ -13,6 +13,8 @@ db.characters.belongsTo(db.species);
 db.ranks.belongsTo(db.species);
 db.characterRanks.belongsTo(db.characters);
 db.characterRanks.belongsTo(db.ranks);
+db.characterShips.belongsTo(db.characters);
+db.characterShips.belongsTo(db.ships);
 
 sequelize
 .authenticate()
