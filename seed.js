@@ -22,9 +22,7 @@ const buildSpeciesTable = 'CREATE TABLE IF NOT EXISTS species ('
 const buildRankTable = 'CREATE TABLE IF NOT EXISTS ranks ('
 + 'id INTEGER PRIMARY KEY, '
 + 'name TEXT, '
-+ 'species_id INTEGER, '
-+ 'user_generated INTEGER DEFAULT 0, '
-+ 'FOREIGN KEY (species_id) REFERENCES species (id))';
++ 'user_generated INTEGER DEFAULT 0)';
 
 const buildShipTable = 'CREATE TABLE IF NOT EXISTS ships ('
 + 'id INTEGER PRIMARY KEY, '
@@ -37,8 +35,8 @@ const buildShipTable = 'CREATE TABLE IF NOT EXISTS ships ('
 
 const buildCharacterRankTable = 'CREATE TABLE IF NOT EXISTS character_rank ('
 + 'id INTEGER PRIMARY KEY, '
-+ 'character_id INTEGER, '
-+ 'rank_id INTEGER, '
++ 'character_id INTEGER NOT NULL, '
++ 'rank_id INTEGER NOT NULL, '
 + 'effective_date TEXT, '
 + 'CONSTRAINT fk_CHAR FOREIGN KEY (character_id) REFERENCES characters (id) ON DELETE CASCADE, '
 + 'CONSTRAINT fk_RANK FOREIGN KEY (rank_id) REFERENCES ranks (id) ON DELETE CASCADE)';
@@ -75,18 +73,18 @@ const insertSpecies = 'INSERT INTO species ("name", "origin", "name_generator", 
 + '("Human Augment", "Earth", NULL, 0)';
 
 // TODO: Add non-human ranks (at least Bajoran, Civilian)
-const insertRanks = 'INSERT INTO ranks ("name", "species_id", "user_generated") VALUES '
-+ '("Civilian", 0, 0), '
-+ '("Ensign", 1, 0), '
-+ '("Lieutenant Junior Grade", 1, 0), '
-+ '("Lieutenant", 1, 0), '
-+ '("Lieutenant Commander", 1, 0), '
-+ '("Commander", 1, 0), '
-+ '("Captain", 1, 0), '
-+ '("Admiral", 1, 0), '
-+ '("Petty Officer", 1, 0), '
-+ '("Chief Petty Officer", 1, 0), '
-+ '("Senior Chief Petty Officer", 1, 0)';
+const insertRanks = 'INSERT INTO ranks ("name", "user_generated") VALUES '
++ '("Civilian", 0), '
++ '("Ensign", 0), '
++ '("Lieutenant Junior Grade", 0), '
++ '("Lieutenant", 0), '
++ '("Lieutenant Commander", 0), '
++ '("Commander", 0), '
++ '("Captain", 0), '
++ '("Admiral", 0), '
++ '("Petty Officer", 0), '
++ '("Chief Petty Officer", 0), '
++ '("Senior Chief Petty Officer", 0)';
 
 // name, sp_id, gender, dob, actor, image, status, user_generated
 const insertCharacters = 'INSERT INTO characters '

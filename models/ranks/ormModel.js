@@ -2,18 +2,14 @@
 // in sequelize we need to know the names ahead of time for the mapping.
 // So there's no reason to populate it dynamically; the fields are already
 // hardcoded in the table define.
-const COLUMN_NAMES = ["id", "name", "species_id", "user_generated"];
+const COLUMN_NAMES = ["id", "name", "user_generated"];
 
 let orm = require('../../sequelize');
 let table = orm.ranks;
 
 function readAll(callback) {
 	table.findAll({
-		raw: true,
-		include: [{
-			model: orm.species,
-			attributes: ['name']
-		}]
+		raw: true
 	}).then(rows => {
 		callback(null, rows);
 	}).catch(error => {
@@ -26,14 +22,8 @@ function readOne(id, callback) {
 	//table.findByPk(id).then(row => {
 	table.findOne({
 		where: { id: id },
-		raw: true,
-		include: [{
-			model: orm.species,
-			attributes: ['name']
-		}]
+		raw: true
 	}).then(row => {
-		//console.log(row.get({ plain: true }));
-		//console.log([row]);
 		// wrapping this in an array to match raw sql return 
 		callback(null, [row]);
 	}).catch(error => {
@@ -56,7 +46,6 @@ function remove(id, callback) {
 function create(parameters, callback) {
 	table.create({
 		name: parameters.name,
-		species_id: parameters.species_id,
 		user_generated: 1
 	}).then(row => {
 		// raw sql doesn't return the result, so we won't either
