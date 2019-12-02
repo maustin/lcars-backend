@@ -1,0 +1,2734 @@
+{
+	"info": {
+		"_postman_id": "11a9b0cf-8882-415d-a4f9-83a59875e5be",
+		"name": "Star Trek API",
+		"description": "An API covering Characters and Ships from Star Trek eras TNG (The Next Generation) to DS9 (Deep Space 9).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ships",
+			"item": [
+				{
+					"name": "localhost:3000/ships",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/ships",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ships"
+							]
+						},
+						"description": "Get all Ship records."
+					},
+					"response": [
+						{
+							"name": "localhost:3000/ships",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/ships",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ships"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1620"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"654-/dgGBrs4Gp2ZxnWpmkXV10RwefY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 17:26:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"USS Enterprise\",\n        \"class\": \"Galaxy-class\",\n        \"registry\": \"NCC-1701-D\",\n        \"status\": \"Destroyed, 2371\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 2,\n        \"name\": \"USS Enterprise\",\n        \"class\": \"Sovereign-class\",\n        \"registry\": \"NCC-1701-E\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Deep Space 9\",\n        \"class\": \"Terok Nor-type\",\n        \"registry\": \"\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 4,\n        \"name\": \"USS Stargazer\",\n        \"class\": \"Constellation-class\",\n        \"registry\": \"NCC-2893\",\n        \"status\": \"Recovered, 2364\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 5,\n        \"name\": \"USS Pegasus\",\n        \"class\": \"Oberth-class\",\n        \"registry\": \"NCC-53847\",\n        \"status\": \"Wrecked, 2358\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 6,\n        \"name\": \"USS Potemkin\",\n        \"class\": \"Excelsior-class\",\n        \"registry\": \"NCC-2005\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 7,\n        \"name\": \"USS Hood\",\n        \"class\": \"Excelsior-class\",\n        \"registry\": \"NCC-42296\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 8,\n        \"name\": \"USS Trieste\",\n        \"class\": \"Merced-class\",\n        \"registry\": \"NCC-37124\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 9,\n        \"name\": \"USS Victory\",\n        \"class\": \"Constellation-class\",\n        \"registry\": \"NCC-9754\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 10,\n        \"name\": \"USS Saratoga\",\n        \"class\": \"Miranda-class\",\n        \"registry\": \"NCC-31911\",\n        \"status\": \"Destroyed, 2366\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 11,\n        \"name\": \"USS Livingston\",\n        \"class\": \"\",\n        \"registry\": \"\",\n        \"status\": \"\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 12,\n        \"name\": \"USS Okinawa\",\n        \"class\": \"\",\n        \"registry\": \"\",\n        \"status\": \"\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 13,\n        \"name\": \"USS Titan\",\n        \"class\": \"Luna-class\",\n        \"registry\": \"NCC-80102\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/ships/id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/ships/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ships",
+								"1"
+							]
+						},
+						"description": "Get a Ship by specified `id`."
+					},
+					"response": [
+						{
+							"name": "localhost:3000/ships/1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/ships/1",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ships",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "138"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8a-ZiEuVHCY+hkZPOvF1adx17o4gkA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 17:21:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"USS Enterprise\",\n        \"class\": \"Galaxy-class\",\n        \"registry\": \"NCC-1701-D\",\n        \"status\": \"Destroyed, 2371\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/ships",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"USS Assembly\",\n\t\"class\":\"Nebula-class\",\n\t\"registry\":\"NCC-24309\",\n\t\"status\":\"Active\",\n\t\"image\":\"yoursite.com/image.png\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/ships",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ships"
+							]
+						},
+						"description": "Create a new Ship.\n\n### Parameters\n- `name` : The ship's name.\n- `registry` : The ship's registry.\n- `class` : The ship's design classification.\n- `status` : Current status of the ship.\n- `image` : URL path to an image."
+					},
+					"response": [
+						{
+							"name": "localhost:3000/ships",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\":\"USS Assembly\",\n\t\"class\":\"Nebula-class\",\n\t\"registry\":\"NCC-24309\",\n\t\"status\":\"Active\",\n\t\"image\":\"yoursite.com/image.png\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/ships",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ships"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 17:23:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/ships",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 14,\n\t\"name\":\"USS General Assembly\",\n\t\"class\":\"Miranda-class\",\n\t\"registry\":\"NCC-24308\",\n\t\"status\":\"Missing, 2301\",\n\t\"image\":\"yourothersite.com/image.png\",\n\t\"user_generated\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/ships",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ships"
+							]
+						},
+						"description": "Update a Ship.\n\n### Parameters\n- `id` : `Integer` id of the Ship to update.\n- `name` : The ship's name.\n- `registry` : The ship's registry.\n- `class` : The ship's design classification.\n- `status` : Current status of the ship.\n- `image` : URL path to an image.\n- `user_generated` : `Integer` specifying if ship was generated by a user (`1`) or not (`0`)."
+					},
+					"response": [
+						{
+							"name": "localhost:3000/ships",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": 14,\n\t\"name\":\"USS General Assembly\",\n\t\"class\":\"Miranda-class\",\n\t\"registry\":\"NCC-24308\",\n\t\"status\":\"Missing, 2301\",\n\t\"image\":\"yourothersite.com/image.png\",\n\t\"user_generated\":1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/ships",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ships"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 17:26:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/ships/id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/ships/14",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ships",
+								"14"
+							]
+						},
+						"description": "Delete a Ship by `id`.\n\n_Any Character-Ship relationship records associated with this Ship will also be deleted._"
+					},
+					"response": [
+						{
+							"name": "localhost:3000/ships/14",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/ships/14",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ships",
+										"14"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 17:26:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				}
+			],
+			"description": "Requests relating the the Ships table.",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Characters",
+			"item": [
+				{
+					"name": "localhost:3000/characters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/characters",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characters"
+							]
+						},
+						"description": "Get all Character records."
+					},
+					"response": [
+						{
+							"name": "Get all characters",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/characters",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"characters"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2962"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b92-DP1gOYgyu1qizu1oCJ6/vRWPREo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 17:41:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Jean-Luc Picard\",\n        \"species_id\": 1,\n        \"gender\": \"m\",\n        \"dob\": \"July 13, 2305\",\n        \"actor\": \"Patrick Stewart\",\n        \"image\": \"\",\n        \"status\": \"Active\",\n        \"user_generated\": 0,\n        \"species.name\": \"Human\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"William T. Riker\",\n        \"species_id\": 1,\n        \"gender\": \"m\",\n        \"dob\": \"2335\",\n        \"actor\": \"Jonathan Frakes\",\n        \"image\": \"\",\n        \"status\": \"Active\",\n        \"user_generated\": 0,\n        \"species.name\": \"Human\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Data\",\n        \"species_id\": 7,\n        \"gender\": \"m\",\n        \"dob\": \"February 2, 2338\",\n        \"actor\": \"Brent Spiner\",\n        \"image\": \"\",\n        \"status\": \"Deceased, 2379\",\n        \"user_generated\": 0,\n        \"species.name\": \"Soong-type Android\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Geordi LaForge\",\n        \"species_id\": 1,\n        \"gender\": \"m\",\n        \"dob\": \"February 16, 2335\",\n        \"actor\": \"LeVar Burton\",\n        \"image\": \"\",\n        \"status\": \"Active\",\n        \"user_generated\": 0,\n        \"species.name\": \"Human\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Worf\",\n        \"species_id\": 2,\n        \"gender\": \"m\",\n        \"dob\": \"2340\",\n        \"actor\": \"Michael Dorn\",\n        \"image\": \"\",\n        \"status\": \"Active\",\n        \"user_generated\": 0,\n        \"species.name\": \"Klingon\"\n    },\n    {\n        \"id\": 6,\n        \"name\": \"Beverly Crusher\",\n        \"species_id\": 1,\n        \"gender\": \"f\",\n        \"dob\": \"October 13, 2324\",\n        \"actor\": \"Gates McFadden\",\n        \"image\": \"\",\n        \"status\": \"Active\",\n        \"user_generated\": 0,\n        \"species.name\": \"Human\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"Deanna Troi\",\n        \"species_id\": 3,\n        \"gender\": \"f\",\n        \"dob\": \"March 29, 2336\",\n        \"actor\": \"Marina Sirtis\",\n        \"image\": \"\",\n        \"status\": \"Active\",\n        \"user_generated\": 0,\n        \"species.name\": \"Betazoid\"\n    },\n    {\n        \"id\": 8,\n        \"name\": \"Natasha Yar\",\n        \"species_id\": 1,\n        \"gender\": \"f\",\n        \"dob\": \"2337\",\n        \"actor\": \"Denise Crosby\",\n        \"image\": \"\",\n        \"status\": \"Deceased, 2364\",\n        \"user_generated\": 0,\n        \"species.name\": \"Human\"\n    },\n    {\n        \"id\": 9,\n        \"name\": \"Miles O'Brien\",\n        \"species_id\": 1,\n        \"gender\": \"m\",\n        \"dob\": \"September 2328\",\n        \"actor\": \"Colm Meaney\",\n        \"image\": \"\",\n        \"status\": \"Active\",\n        \"user_generated\": 0,\n        \"species.name\": \"Human\"\n    },\n    {\n        \"id\": 10,\n        \"name\": \"Wesley Crusher\",\n        \"species_id\": 1,\n        \"gender\": \"m\",\n        \"dob\": \"2348\",\n        \"actor\": \"Wil Wheaton\",\n        \"image\": \"\",\n        \"status\": \"Active\",\n        \"user_generated\": 0,\n        \"species.name\": \"Human\"\n    },\n    {\n        \"id\": 11,\n        \"name\": \"Benjamin Sisko\",\n        \"species_id\": 1,\n        \"gender\": \"m\",\n        \"dob\": \"2332\",\n        \"actor\": \"Avery Brooks\",\n        \"image\": \"\",\n        \"status\": \"Missing, 2375\",\n        \"user_generated\": 0,\n        \"species.name\": \"Human\"\n    },\n    {\n        \"id\": 12,\n        \"name\": \"Kira Nerys\",\n        \"species_id\": 4,\n        \"gender\": \"f\",\n        \"dob\": \"2343\",\n        \"actor\": \"Nana Visitor\",\n        \"image\": \"\",\n        \"status\": \"Active\",\n        \"user_generated\": 0,\n        \"species.name\": \"Bajoran\"\n    },\n    {\n        \"id\": 13,\n        \"name\": \"Jadzia Dax\",\n        \"species_id\": 8,\n        \"gender\": \"f\",\n        \"dob\": \"2341\",\n        \"actor\": \"Terry Farrell\",\n        \"image\": \"\",\n        \"status\": \"Deceased, 2374\",\n        \"user_generated\": 0,\n        \"species.name\": \"Trill\"\n    },\n    {\n        \"id\": 14,\n        \"name\": \"Ezri Dax\",\n        \"species_id\": 8,\n        \"gender\": \"f\",\n        \"dob\": \"\",\n        \"actor\": \"Nicole de Boer\",\n        \"image\": \"\",\n        \"status\": \"Active\",\n        \"user_generated\": 0,\n        \"species.name\": \"Trill\"\n    },\n    {\n        \"id\": 15,\n        \"name\": \"Julian Bashir\",\n        \"species_id\": 9,\n        \"gender\": \"m\",\n        \"dob\": \"2341\",\n        \"actor\": \"Alexander Siddig\",\n        \"image\": \"\",\n        \"status\": \"Active\",\n        \"user_generated\": 0,\n        \"species.name\": \"Human Augment\"\n    },\n    {\n        \"id\": 16,\n        \"name\": \"Odo\",\n        \"species_id\": 6,\n        \"gender\": \"\",\n        \"dob\": \"Unknown\",\n        \"actor\": \"Rene Auberjonois\",\n        \"image\": \"\",\n        \"status\": \"Resigned, 2375\",\n        \"user_generated\": 0,\n        \"species.name\": \"Changling\"\n    },\n    {\n        \"id\": 17,\n        \"name\": \"Quark\",\n        \"species_id\": 5,\n        \"gender\": \"m\",\n        \"dob\": \"\",\n        \"actor\": \"Armin Shimerman\",\n        \"image\": \"\",\n        \"status\": \"Active\",\n        \"user_generated\": 0,\n        \"species.name\": \"Ferengi\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/characters/id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/characters/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characters",
+								"1"
+							]
+						},
+						"description": "Get a Character by `id`."
+					},
+					"response": [
+						{
+							"name": "Get character by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/characters/1",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"characters",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "182"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b6-im8I4CcSAadQQTRVwPHA2/R54dI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 19:59:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Jean-Luc Picard\",\n        \"species_id\": 1,\n        \"gender\": \"m\",\n        \"dob\": \"July 13, 2305\",\n        \"actor\": \"Patrick Stewart\",\n        \"image\": \"\",\n        \"status\": \"Active\",\n        \"user_generated\": 0,\n        \"species.name\": \"Human\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/characters",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Peter\",\n\t\"species_id\":1,\n\t\"gender\":\"m\",\n\t\"dob\":\"April 1, 2275\",\n\t\"actor\":\"Tim Allen\",\n\t\"image\":\"somesite.com/image.png\",\n\t\"status\":\"Active\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/characters",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characters"
+							]
+						},
+						"description": "Create a new Character.\n\n### Parameters\n- `name` : The character's name.\n- `species_id` : `Integer` pointing to a Species id.\n- `gender` : A string representing a character's gender. Typically `m` for male and `f` for female.\n- `dob` : A string date specifying the characters date of birth.\n- `actor` : The name of the actor who protrayed the character.\n- `image` : URL path to an image.\n- `status` : Current status of the character."
+					},
+					"response": [
+						{
+							"name": "Create a new character record",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\":\"Peter\",\n\t\"species_id\":1,\n\t\"gender\":\"m\",\n\t\"dob\":\"April 1, 2275\",\n\t\"actor\":\"Tim Allen\",\n\t\"image\":\"somesite.com/image.png\",\n\t\"status\":\"Active\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/characters",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"characters"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 17:52:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/characters",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":18,\n\t\"name\":\"Peter Quincy Taggert\",\n\t\"species_id\":1,\n\t\"gender\":\"m\",\n\t\"dob\":\"April 4, 2275\",\n\t\"actor\":\"Tim Allen\",\n\t\"image\":\"somesite.com/image.jpb\",\n\t\"status\":\"Deceased, 2382\",\n\t\"user_generated\":0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/characters",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characters"
+							]
+						},
+						"description": "Update a Character.\n\n### Parameters\n- `id` : `Integer` id of the character to update.\n- `name` : The character's name.\n- `species_id` : `Integer` pointing to a Species id.\n- `gender` : A string representing a character's gender. Typically `m` for male and `f` for female.\n- `dob` : A string date specifying the characters date of birth.\n- `actor` : The name of the actor who protrayed the character.\n- `image` : URL path to an image.\n- `status` : Current status of the character.\n- `user_generated` : `Integer` specifying if character was generated by a user (`1`) or not (`0`)."
+					},
+					"response": [
+						{
+							"name": "Update a character record",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\":18,\n\t\"name\":\"Peter Quincy Taggert\",\n\t\"species_id\":1,\n\t\"gender\":\"m\",\n\t\"dob\":\"April 4, 2275\",\n\t\"actor\":\"Tim Allen\",\n\t\"image\":\"somesite.com/image.jpb\",\n\t\"status\":\"Deceased, 2382\",\n\t\"user_generated\":0\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/characters",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"characters"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 17:55:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/characters/id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/characters/18",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characters",
+								"18"
+							]
+						},
+						"description": "Delete a Character by `id`.\n\n_Any Character-Ship relationship records associated with this Character will also be deleted._\n\n_Any Character-Rank relationship records associated with this Character will also be deleted._"
+					},
+					"response": [
+						{
+							"name": "Delete a character record",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/characters/18",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"characters",
+										"18"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 17:56:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Species",
+			"item": [
+				{
+					"name": "localhost:3000/species",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/species",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"species"
+							]
+						},
+						"description": "Get all species records."
+					},
+					"response": [
+						{
+							"name": "Get all species records",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/species",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"species"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "781"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30d-j1m1TQCBDqmBWoTwFelmFDtou30\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 17:57:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Human\",\n        \"origin\": \"Earth\",\n        \"name_generator\": null,\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Klingon\",\n        \"origin\": \"Qu'noS\",\n        \"name_generator\": null,\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Betazoid\",\n        \"origin\": \"Betazed\",\n        \"name_generator\": null,\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Bajoran\",\n        \"origin\": \"Bajor\",\n        \"name_generator\": null,\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Ferengi\",\n        \"origin\": \"Ferenginar\",\n        \"name_generator\": null,\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 6,\n        \"name\": \"Changling\",\n        \"origin\": \"Unknown\",\n        \"name_generator\": null,\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 7,\n        \"name\": \"Soong-type Android\",\n        \"origin\": \"N/A\",\n        \"name_generator\": null,\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 8,\n        \"name\": \"Trill\",\n        \"origin\": \"Trill\",\n        \"name_generator\": null,\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 9,\n        \"name\": \"Human Augment\",\n        \"origin\": \"Earth\",\n        \"name_generator\": null,\n        \"user_generated\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/species/id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/species/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"species",
+								"1"
+							]
+						},
+						"description": "Get a Species by `id`."
+					},
+					"response": [
+						{
+							"name": "Get species by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/species/1",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"species",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "83"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"53-iJ3PvP3SxQClZBNCQOcakI6Cwb4\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 20:06:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Human\",\n        \"origin\": \"Earth\",\n        \"name_generator\": null,\n        \"user_generated\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/species",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Mystopians\",\n\t\"origin\":\"Mystopia\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/species",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"species"
+							]
+						},
+						"description": "Create a new Species record.\n\n### Parameters\n- `name` : The species name.\n- `origin` : Name of the planet where species originated."
+					},
+					"response": [
+						{
+							"name": "Create a new species record",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\":\"Mystopians\",\n\t\"origin\":\"Mystopia\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/species",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"species"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 18:02:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/species",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":10,\n\t\"name\":\"Mystopians\",\n\t\"origin\":\"Mystopia\",\n\t\"name_generator\":\"scriptName\",\n\t\"user_generated\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/species",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"species"
+							]
+						},
+						"description": "Update a Species record.\n\n### Parameters\n- `id` : `Integer` id of species record to update.\n- `name` : The species name.\n- `origin` : Name of the planet where species originated.\n- `user_generated` : `Integer` specifying if species was generated by a user (`1`) or not (`0`)."
+					},
+					"response": [
+						{
+							"name": "Update a species record",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\":10,\n\t\"name\":\"Mystopians\",\n\t\"origin\":\"Mystopia\",\n\t\"name_generator\":\"scriptName\",\n\t\"user_generated\":1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/species",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"species"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 18:04:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/species/id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/species/10",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"species",
+								"10"
+							]
+						},
+						"description": "Delete a Species by `id`."
+					},
+					"response": [
+						{
+							"name": "Delete a species record",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/species/10",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"species",
+										"10"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 18:05:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Ranks",
+			"item": [
+				{
+					"name": "localhost:3000/ranks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/ranks",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ranks"
+							]
+						},
+						"description": "Get all Ranks."
+					},
+					"response": [
+						{
+							"name": "Get all ranks",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/ranks",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ranks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "569"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"239-9ig9oWaPmaUx/Hmn2EDQNJ96MZ4\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 19:02:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Civilian\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Ensign\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Lieutenant Junior Grade\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Lieutenant\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Lieutenant Commander\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 6,\n        \"name\": \"Commander\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 7,\n        \"name\": \"Captain\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 8,\n        \"name\": \"Admiral\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 9,\n        \"name\": \"Petty Officer\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 10,\n        \"name\": \"Chief Petty Officer\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 11,\n        \"name\": \"Senior Chief Petty Officer\",\n        \"user_generated\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/ranks/id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/ranks/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ranks",
+								"1"
+							]
+						},
+						"description": "Get a Rank by `id`."
+					},
+					"response": [
+						{
+							"name": "Get rank by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/ranks/1",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ranks",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "47"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2f-xn0Mp9fGPC2poUrQMfm3GrAGkfk\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 18:59:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Civilian\",\n        \"user_generated\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/ranks",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"Constable\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/ranks",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ranks"
+							]
+						},
+						"description": "Create a new Rank.\n\n### Parameters\n- `name` - The rank's name."
+					},
+					"response": [
+						{
+							"name": "Create a new rank",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\":\"Constable\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/ranks",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ranks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 19:00:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/ranks",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":12,\n\t\"name\":\"Constable\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/ranks",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ranks"
+							]
+						},
+						"description": "Update a rank record.\n\n### Parameters\n- `id` : `Integer` id of the rank to update.\n- `name` : The rank's name.\n- `user_generated` : `Integer` specifying if rank was generated by a user (`1`) or not (`0`)."
+					},
+					"response": [
+						{
+							"name": "Update a rank",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\":12,\n\t\"name\":\"Constable\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/ranks",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ranks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 19:01:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/ranks/id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/ranks/12",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ranks",
+								"12"
+							]
+						},
+						"description": "Delete a Rank by `id`.\n\n_Any Character-Rank relationship records associated with this Rank will also be deleted._"
+					},
+					"response": [
+						{
+							"name": "Delete a rank",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/ranks/12",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ranks",
+										"12"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 19:02:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "CharacterShips",
+			"item": [
+				{
+					"name": "localhost:3000/characterships",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/characterships",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characterships"
+							]
+						},
+						"description": "Get all Character-Ship relationships.\n\nThese records define the relationship between a Character (`character_id`) and a Ship (`ship_id`) starting at a specific date (`effective_date`).\nThat is to say, _when_ a _character_ began serving on _ship_."
+					},
+					"response": [
+						{
+							"name": "Get all character-ship relationships",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/characterships",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"characterships"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1955"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7a3-26z3H3KPGAtjNhziYnr/0q/Ekso\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 19:11:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"character_id\": 1,\n        \"ship_id\": 4,\n        \"effective_date\": \"2333\"\n    },\n    {\n        \"id\": 2,\n        \"character_id\": 1,\n        \"ship_id\": 1,\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 3,\n        \"character_id\": 1,\n        \"ship_id\": 2,\n        \"effective_date\": \"2372\"\n    },\n    {\n        \"id\": 4,\n        \"character_id\": 2,\n        \"ship_id\": 5,\n        \"effective_date\": \"2357\"\n    },\n    {\n        \"id\": 5,\n        \"character_id\": 2,\n        \"ship_id\": 6,\n        \"effective_date\": \"2361\"\n    },\n    {\n        \"id\": 6,\n        \"character_id\": 2,\n        \"ship_id\": 7,\n        \"effective_date\": \"2363\"\n    },\n    {\n        \"id\": 7,\n        \"character_id\": 2,\n        \"ship_id\": 1,\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 8,\n        \"character_id\": 2,\n        \"ship_id\": 2,\n        \"effective_date\": \"2372\"\n    },\n    {\n        \"id\": 9,\n        \"character_id\": 2,\n        \"ship_id\": 13,\n        \"effective_date\": \"2379\"\n    },\n    {\n        \"id\": 10,\n        \"character_id\": 3,\n        \"ship_id\": 8,\n        \"effective_date\": \"2349\"\n    },\n    {\n        \"id\": 11,\n        \"character_id\": 3,\n        \"ship_id\": 1,\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 12,\n        \"character_id\": 3,\n        \"ship_id\": 2,\n        \"effective_date\": \"2372\"\n    },\n    {\n        \"id\": 13,\n        \"character_id\": 4,\n        \"ship_id\": 9,\n        \"effective_date\": \"2358\"\n    },\n    {\n        \"id\": 14,\n        \"character_id\": 4,\n        \"ship_id\": 7,\n        \"effective_date\": \"2361\"\n    },\n    {\n        \"id\": 15,\n        \"character_id\": 4,\n        \"ship_id\": 1,\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 16,\n        \"character_id\": 4,\n        \"ship_id\": 2,\n        \"effective_date\": \"2372\"\n    },\n    {\n        \"id\": 17,\n        \"character_id\": 5,\n        \"ship_id\": 1,\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 18,\n        \"character_id\": 5,\n        \"ship_id\": 3,\n        \"effective_date\": \"2372\"\n    },\n    {\n        \"id\": 19,\n        \"character_id\": 6,\n        \"ship_id\": 1,\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 20,\n        \"character_id\": 6,\n        \"ship_id\": 2,\n        \"effective_date\": \"2372\"\n    },\n    {\n        \"id\": 21,\n        \"character_id\": 7,\n        \"ship_id\": 1,\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 22,\n        \"character_id\": 7,\n        \"ship_id\": 2,\n        \"effective_date\": \"2372\"\n    },\n    {\n        \"id\": 23,\n        \"character_id\": 7,\n        \"ship_id\": 13,\n        \"effective_date\": \"2379\"\n    },\n    {\n        \"id\": 24,\n        \"character_id\": 8,\n        \"ship_id\": 1,\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 25,\n        \"character_id\": 9,\n        \"ship_id\": 1,\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 26,\n        \"character_id\": 9,\n        \"ship_id\": 3,\n        \"effective_date\": \"2369\"\n    },\n    {\n        \"id\": 27,\n        \"character_id\": 10,\n        \"ship_id\": 1,\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 28,\n        \"character_id\": 11,\n        \"ship_id\": 11,\n        \"effective_date\": \"2357\"\n    },\n    {\n        \"id\": 29,\n        \"character_id\": 11,\n        \"ship_id\": 12,\n        \"effective_date\": \"2362\"\n    },\n    {\n        \"id\": 30,\n        \"character_id\": 11,\n        \"ship_id\": 10,\n        \"effective_date\": \"2365\"\n    },\n    {\n        \"id\": 31,\n        \"character_id\": 11,\n        \"ship_id\": 3,\n        \"effective_date\": \"2369\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/characterships/id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/characterships/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characterships",
+								"1"
+							]
+						},
+						"description": "Get a character-ship relationship by its `id`."
+					},
+					"response": [
+						{
+							"name": "Get a character-ship relationship by its id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/characterships/1",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"characterships",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3f-q4LZ+5RSEGFamgEImPObs26FTkk\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 19:13:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"character_id\": 1,\n        \"ship_id\": 4,\n        \"effective_date\": \"2333\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/characterships/bycharacterid/id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/characterships/bycharacterid/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characterships",
+								"bycharacterid",
+								"1"
+							]
+						},
+						"description": "Get all character-ship relationships by character `id`.\n\nThis call will return all Ships that the specified Character has served on."
+					},
+					"response": [
+						{
+							"name": "Get all character-ship relationships by a character id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/characterships/bycharacterid/1",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"characterships",
+										"bycharacterid",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "307"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"133-KvbtOYHpAXGc+XjP13IUNs76pEA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 19:24:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"ship_id\": 4,\n        \"ship.name\": \"USS Stargazer\",\n        \"ship.registry\": \"NCC-2893\",\n        \"effective_date\": \"2333\"\n    },\n    {\n        \"id\": 2,\n        \"ship_id\": 1,\n        \"ship.name\": \"USS Enterprise\",\n        \"ship.registry\": \"NCC-1701-D\",\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 3,\n        \"ship_id\": 2,\n        \"ship.name\": \"USS Enterprise\",\n        \"ship.registry\": \"NCC-1701-E\",\n        \"effective_date\": \"2372\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/characterships/byshipid/id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/characterships/byshipid/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characterships",
+								"byshipid",
+								"1"
+							]
+						},
+						"description": "Get all character-ship relationships by Ship `id`.\n\nThis call will return all Characters that have served on the specified Ship."
+					},
+					"response": [
+						{
+							"name": "localhost:3000/characterships/byshipid/1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/characterships/byshipid/1",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"characterships",
+										"byshipid",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "827"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33b-RRDbBWRhanK4n9zCOLOkmw69hiI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 19:23:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 2,\n        \"character_id\": 1,\n        \"character.name\": \"Jean-Luc Picard\",\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 7,\n        \"character_id\": 2,\n        \"character.name\": \"William T. Riker\",\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 11,\n        \"character_id\": 3,\n        \"character.name\": \"Data\",\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 15,\n        \"character_id\": 4,\n        \"character.name\": \"Geordi LaForge\",\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 17,\n        \"character_id\": 5,\n        \"character.name\": \"Worf\",\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 19,\n        \"character_id\": 6,\n        \"character.name\": \"Beverly Crusher\",\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 21,\n        \"character_id\": 7,\n        \"character.name\": \"Deanna Troi\",\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 24,\n        \"character_id\": 8,\n        \"character.name\": \"Natasha Yar\",\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 25,\n        \"character_id\": 9,\n        \"character.name\": \"Miles O'Brien\",\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 27,\n        \"character_id\": 10,\n        \"character.name\": \"Wesley Crusher\",\n        \"effective_date\": \"2364\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/characterships",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"character_id\":1,\n\t\"ship_id\":3,\n\t\"effective_date\":\"2350\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/characterships",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characterships"
+							]
+						},
+						"description": "Create a new Character-Ship relationship.\n\nThis call creates a new relationship between a Character and a Ship at a specific date.\n\n### Parameters\n- `character_id` : `Integer` that points to a Character record.\n- `ship_id` : `Integer` that points to a Ship record.\n- `effective_date` : `String` date that marks the start of the relationship."
+					},
+					"response": [
+						{
+							"name": "localhost:3000/characterships",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"character_id\": 1,\n\t\"ship_id\":3,\n\t\"effective_date\":\"2350\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/characterships",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"characterships"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 19:27:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/characterships",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":31,\n\t\"character_id\":1,\n\t\"ship_id\":3,\n\t\"effective_date\":\"July 10, 2344\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/characterships",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characterships"
+							]
+						},
+						"description": "Update a Character-Ship relationship.\n\n### Parameters\n- `id` : `Integer` id of the record to update.\n- `character_id` : `Integer` that points to a Character record.\n- `ship_id` : `Integer` that points to a Ship record.\n- `effective_date` : `String` date that marks the start of the relationship."
+					},
+					"response": [
+						{
+							"name": "localhost:3000/characterships",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\":31,\n\t\"character_id\":1,\n\t\"ship_id\":3,\n\t\"effective_date\":\"July 10, 2344\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/characterships",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"characterships"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 20:27:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/characterships/id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/characterships/32",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characterships",
+								"32"
+							]
+						},
+						"description": "Delete a character-ship relationship record by `id`."
+					},
+					"response": [
+						{
+							"name": "localhost:3000/characterships/id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/characterships/32",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"characterships",
+										"32"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 20:25:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "CharacterRanks",
+			"item": [
+				{
+					"name": "localhost:3000/characterranks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/characterranks",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characterranks"
+							]
+						},
+						"description": "Get all Character-Rank relationships.\n\nThese records define the relationship between a Character (`character_id`) and a Rank (`rank_id`) beginning on a specific date (`effective_date`)."
+					},
+					"response": [
+						{
+							"name": "localhost:3000/characterranks",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/characterranks",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"characterranks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1890"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"762-hJBxsg9iC4FgyhEmAE5XonqoJKI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 21:31:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"character_id\": 1,\n        \"rank_id\": 2,\n        \"effective_date\": \"2327\"\n    },\n    {\n        \"id\": 2,\n        \"character_id\": 1,\n        \"rank_id\": 7,\n        \"effective_date\": \"2333\"\n    },\n    {\n        \"id\": 3,\n        \"character_id\": 2,\n        \"rank_id\": 2,\n        \"effective_date\": \"2357\"\n    },\n    {\n        \"id\": 4,\n        \"character_id\": 2,\n        \"rank_id\": 4,\n        \"effective_date\": \"2360\"\n    },\n    {\n        \"id\": 5,\n        \"character_id\": 2,\n        \"rank_id\": 5,\n        \"effective_date\": \"2361\"\n    },\n    {\n        \"id\": 6,\n        \"character_id\": 2,\n        \"rank_id\": 6,\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 7,\n        \"character_id\": 2,\n        \"rank_id\": 7,\n        \"effective_date\": \"2379\"\n    },\n    {\n        \"id\": 8,\n        \"character_id\": 3,\n        \"rank_id\": 2,\n        \"effective_date\": \"2348\"\n    },\n    {\n        \"id\": 9,\n        \"character_id\": 3,\n        \"rank_id\": 4,\n        \"effective_date\": \"2351\"\n    },\n    {\n        \"id\": 10,\n        \"character_id\": 3,\n        \"rank_id\": 5,\n        \"effective_date\": \"2363\"\n    },\n    {\n        \"id\": 11,\n        \"character_id\": 4,\n        \"rank_id\": 2,\n        \"effective_date\": \"2357\"\n    },\n    {\n        \"id\": 12,\n        \"character_id\": 4,\n        \"rank_id\": 4,\n        \"effective_date\": \"2365\"\n    },\n    {\n        \"id\": 13,\n        \"character_id\": 4,\n        \"rank_id\": 5,\n        \"effective_date\": \"2366\"\n    },\n    {\n        \"id\": 14,\n        \"character_id\": 5,\n        \"rank_id\": 3,\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 15,\n        \"character_id\": 5,\n        \"rank_id\": 4,\n        \"effective_date\": \"2366\"\n    },\n    {\n        \"id\": 16,\n        \"character_id\": 5,\n        \"rank_id\": 5,\n        \"effective_date\": \"2371\"\n    },\n    {\n        \"id\": 17,\n        \"character_id\": 6,\n        \"rank_id\": 2,\n        \"effective_date\": \"2350\"\n    },\n    {\n        \"id\": 18,\n        \"character_id\": 6,\n        \"rank_id\": 6,\n        \"effective_date\": \"2362\"\n    },\n    {\n        \"id\": 19,\n        \"character_id\": 7,\n        \"rank_id\": 2,\n        \"effective_date\": \"2359\"\n    },\n    {\n        \"id\": 20,\n        \"character_id\": 7,\n        \"rank_id\": 5,\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 21,\n        \"character_id\": 7,\n        \"rank_id\": 6,\n        \"effective_date\": \"2370\"\n    },\n    {\n        \"id\": 22,\n        \"character_id\": 8,\n        \"rank_id\": 4,\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 23,\n        \"character_id\": 9,\n        \"rank_id\": 10,\n        \"effective_date\": \"2364\"\n    },\n    {\n        \"id\": 24,\n        \"character_id\": 9,\n        \"rank_id\": 11,\n        \"effective_date\": \"2369\"\n    },\n    {\n        \"id\": 25,\n        \"character_id\": 10,\n        \"rank_id\": 3,\n        \"effective_date\": \"2379\"\n    },\n    {\n        \"id\": 26,\n        \"character_id\": 11,\n        \"rank_id\": 2,\n        \"effective_date\": \"2354\"\n    },\n    {\n        \"id\": 27,\n        \"character_id\": 11,\n        \"rank_id\": 4,\n        \"effective_date\": \"2357\"\n    },\n    {\n        \"id\": 28,\n        \"character_id\": 11,\n        \"rank_id\": 5,\n        \"effective_date\": \"2362\"\n    },\n    {\n        \"id\": 29,\n        \"character_id\": 11,\n        \"rank_id\": 6,\n        \"effective_date\": \"2369\"\n    },\n    {\n        \"id\": 30,\n        \"character_id\": 11,\n        \"rank_id\": 7,\n        \"effective_date\": \"2371\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/characterranks/id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/characterranks/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characterranks",
+								"1"
+							]
+						},
+						"description": "Get a Character-Rank relationship by `id`."
+					},
+					"response": [
+						{
+							"name": "localhost:3000/characterranks/id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/characterranks/1",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"characterranks",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3f-seSAKzaUtivVx/XgvqUKkAPMIMc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 21:36:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"character_id\": 1,\n        \"rank_id\": 2,\n        \"effective_date\": \"2327\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/characterranks/bycharacterid/id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/characterranks/bycharacterid/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characterranks",
+								"bycharacterid",
+								"1"
+							]
+						},
+						"description": "Get all character-rank relationships by character id.\n\nThis call will return all Ranks that the specified Character has held, and the dates these ranks too effect."
+					},
+					"response": [
+						{
+							"name": "localhost:3000/characterranks/bycharacterid/1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/characterranks/bycharacterid/1",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"characterranks",
+										"bycharacterid",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "192"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"c0-4XzObQSZhFrn6dDl3E3QdUU79Gs\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 21:38:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"character_id\": 1,\n        \"rank_id\": 2,\n        \"effective_date\": \"2327\",\n        \"rank.name\": \"Ensign\",\n        \"rank.id\": 2\n    },\n    {\n        \"id\": 2,\n        \"character_id\": 1,\n        \"rank_id\": 7,\n        \"effective_date\": \"2333\",\n        \"rank.name\": \"Captain\",\n        \"rank.id\": 7\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/characterranks",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"character_id\":1,\n\t\"rank_id\":4,\n\t\"effective_date\":\"August, 2329\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/characterranks",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characterranks"
+							]
+						},
+						"description": "Create a character-rank relationship.\n\n### Parameters\n- `character_id` : `Integer` id of the character.\n- `rank_id` : `Integer` id of the rank.\n- `effective_date` : `String` date that marks the start of the relationship."
+					},
+					"response": [
+						{
+							"name": "localhost:3000/characterranks",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"character_id\":1,\n\t\"rank_id\":4,\n\t\"effective_date\":\"August, 2329\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/characterranks",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"characterranks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 21:45:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/characterranks",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":31,\n\t\"character_id\":1,\n\t\"rank_id\":3,\n\t\"effective_date\":\"June 7, 2329\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/characterranks",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characterranks"
+							]
+						},
+						"description": "Update a character-rank relationship.\n\n### Parameters\n- `id` : `Integer` id of the record to update.\n- `character_id` : `Integer` id of the character.\n- `rank_id` : `Integer` id of the rank.\n- `effective_date` : `String` date that marks the start of the relationship."
+					},
+					"response": [
+						{
+							"name": "localhost:3000/characterranks",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\":31,\n\t\"character_id\":1,\n\t\"rank_id\":3,\n\t\"effective_date\":\"June 7, 2329\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/characterranks",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"characterranks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 21:48:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				},
+				{
+					"name": "localhost:3000/characterranks/id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/characterranks/31",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"characterranks",
+								"31"
+							]
+						},
+						"description": "Delete a Character-Rank relationship by `id`."
+					},
+					"response": [
+						{
+							"name": "localhost:3000/characterranks/id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/characterranks/31",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"characterranks",
+										"31"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 21:50:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "4fdfbec2-b19b-48e2-8b26-8b8f7777a7b2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "1670dcaf-0c7d-482c-bf05-f582019c0c00",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
