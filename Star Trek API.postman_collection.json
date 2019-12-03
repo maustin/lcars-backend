@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "11a9b0cf-8882-415d-a4f9-83a59875e5be",
 		"name": "Star Trek API",
-		"description": "An API covering Characters, Ships, Species, and Ranks from _Star Trek_ eras TNG (The Next Generation) to DS9 (Deep Space 9).\n\nThe primary tables are `characters` and `ships`.\n\nEach character will belong to one `species`.\n\nEach character can have held multiple ranks over their lifetime. These character-rank relationships are stored in the `character_rank` table. Each record in the table will reference a character, a rank, and the date that rank took effect.\n\nEach character can also have served aboard multiple ships. These character-ship relationships are stored in the `character_ship` table. Each record will reference a character, a ship, and the date the character began serving on that ship.\n\n#### Delete Cascade\nWhen deleting a character, any records in `character_rank` and `character_ship` that reference that character will also be deleted.\n\nSimilarly when deleting a ship or rank, any associated records in `character_rank` and `character_ship` will also be deleted.\n\n#### User Generated Content\nA `user_generated` field exists on each character, ship, species, and rank record. This property is set to `1` for all POST methods.\nIn the future, DELETE requests will only be permitted where the `user_generated` value equals `1`.\n\n#### A Note About Canon\nSome details may appear to be missing, for example ranks held by Jean-Luc Picard between Ensign and Captain. This lack of information is simply because these details were never established in canon.",
+		"description": "An API covering Characters, Ships, Species, and Ranks from _Star Trek_ eras TNG (The Next Generation) to DS9 (Deep Space 9).\n\nThe primary tables are `characters` and `ships`.\n\nEach character will belong to one `species`.\n\nEach character can have held multiple ranks over their lifetime. These character-rank relationships are stored in the `character_rank` table. Each record in the table will reference a character, a rank, and the date that rank took effect.\n\nEach character can also have served aboard multiple ships. These character-ship relationships are stored in the `character_ship` table. Each record will reference a character, a ship, and the date the character began serving on that ship.\n\n#### 404 : ID Not Found\nRequests that require an id (GET by id, PUT, DELETE) will return status 404 if the specified id cannot be found.\n\n#### Delete Cascade\nWhen deleting a character, any records in `character_rank` and `character_ship` that reference that character will also be deleted.\n\nSimilarly when deleting a ship or rank, any associated records in `character_rank` and `character_ship` will also be deleted.\n\n#### User Generated Content\nA `user_generated` field exists on each character, ship, species, and rank record. This property is set to `1` for all POST methods.\nIn the future, DELETE requests will only be permitted where the `user_generated` value equals `1`.\n\n#### A Note About Canon\nSome details may appear to be missing, for example ranks held by Jean-Luc Picard between Ensign and Captain. This lack of information is simply because these details were never established in canon.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -28,7 +28,7 @@
 					},
 					"response": [
 						{
-							"name": "Get all characters",
+							"name": "/characters",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -65,7 +65,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 17:41:45 GMT"
+									"value": "Tue, 03 Dec 2019 09:05:37 GMT"
 								},
 								{
 									"key": "Connection",
@@ -97,7 +97,7 @@
 					},
 					"response": [
 						{
-							"name": "Get character by id",
+							"name": "/characters/id",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -127,15 +127,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "182"
+									"value": "180"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"b6-im8I4CcSAadQQTRVwPHA2/R54dI\""
+									"value": "W/\"b4-0H6tgHYksEVMHGSu3g0y4mz4RZk\""
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 19:59:30 GMT"
+									"value": "Tue, 03 Dec 2019 09:19:58 GMT"
 								},
 								{
 									"key": "Connection",
@@ -143,7 +143,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Jean-Luc Picard\",\n        \"species_id\": 1,\n        \"gender\": \"m\",\n        \"dob\": \"July 13, 2305\",\n        \"actor\": \"Patrick Stewart\",\n        \"image\": \"\",\n        \"status\": \"Active\",\n        \"user_generated\": 0,\n        \"species.name\": \"Human\"\n    }\n]"
+							"body": "{\n    \"id\": 1,\n    \"name\": \"Jean-Luc Picard\",\n    \"species_id\": 1,\n    \"gender\": \"m\",\n    \"dob\": \"July 13, 2305\",\n    \"actor\": \"Patrick Stewart\",\n    \"image\": \"\",\n    \"status\": \"Active\",\n    \"user_generated\": 0,\n    \"species.name\": \"Human\"\n}"
 						}
 					]
 				},
@@ -182,7 +182,7 @@
 					},
 					"response": [
 						{
-							"name": "Create a new character record",
+							"name": "/characters",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -235,7 +235,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 17:52:37 GMT"
+									"value": "Tue, 03 Dec 2019 09:06:59 GMT"
 								},
 								{
 									"key": "Connection",
@@ -282,7 +282,7 @@
 					},
 					"response": [
 						{
-							"name": "Update a character record",
+							"name": "/characters",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [
@@ -335,7 +335,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 17:55:36 GMT"
+									"value": "Tue, 03 Dec 2019 09:20:59 GMT"
 								},
 								{
 									"key": "Connection",
@@ -367,7 +367,7 @@
 					},
 					"response": [
 						{
-							"name": "Delete a character record",
+							"name": "/characters/id",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
@@ -405,7 +405,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 17:56:38 GMT"
+									"value": "Tue, 03 Dec 2019 09:21:39 GMT"
 								},
 								{
 									"key": "Connection",
@@ -465,7 +465,7 @@
 					},
 					"response": [
 						{
-							"name": "localhost:3000/ships",
+							"name": "/ships",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -502,7 +502,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 17:26:58 GMT"
+									"value": "Tue, 03 Dec 2019 09:25:57 GMT"
 								},
 								{
 									"key": "Connection",
@@ -534,7 +534,7 @@
 					},
 					"response": [
 						{
-							"name": "localhost:3000/ships/1",
+							"name": "/ships/id",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -564,15 +564,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "138"
+									"value": "136"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"8a-ZiEuVHCY+hkZPOvF1adx17o4gkA\""
+									"value": "W/\"88-pcJ5gIzprPOH9+muWM3aSIScz+M\""
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 17:21:08 GMT"
+									"value": "Tue, 03 Dec 2019 09:26:17 GMT"
 								},
 								{
 									"key": "Connection",
@@ -580,7 +580,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"USS Enterprise\",\n        \"class\": \"Galaxy-class\",\n        \"registry\": \"NCC-1701-D\",\n        \"status\": \"Destroyed, 2371\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    }\n]"
+							"body": "{\n    \"id\": 1,\n    \"name\": \"USS Enterprise\",\n    \"class\": \"Galaxy-class\",\n    \"registry\": \"NCC-1701-D\",\n    \"status\": \"Destroyed, 2371\",\n    \"image\": \"\",\n    \"user_generated\": 0\n}"
 						}
 					]
 				},
@@ -619,7 +619,7 @@
 					},
 					"response": [
 						{
-							"name": "localhost:3000/ships",
+							"name": "/ships",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -672,7 +672,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 17:23:58 GMT"
+									"value": "Tue, 03 Dec 2019 09:29:48 GMT"
 								},
 								{
 									"key": "Connection",
@@ -719,7 +719,7 @@
 					},
 					"response": [
 						{
-							"name": "localhost:3000/ships",
+							"name": "/ships",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [
@@ -772,7 +772,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 17:26:21 GMT"
+									"value": "Tue, 03 Dec 2019 09:35:08 GMT"
 								},
 								{
 									"key": "Connection",
@@ -804,7 +804,7 @@
 					},
 					"response": [
 						{
-							"name": "localhost:3000/ships/14",
+							"name": "/ships/id",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
@@ -842,7 +842,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 17:26:54 GMT"
+									"value": "Tue, 03 Dec 2019 09:40:00 GMT"
 								},
 								{
 									"key": "Connection",
@@ -902,7 +902,7 @@
 					},
 					"response": [
 						{
-							"name": "Get all species records",
+							"name": "/species",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -939,7 +939,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 17:57:36 GMT"
+									"value": "Tue, 03 Dec 2019 09:43:06 GMT"
 								},
 								{
 									"key": "Connection",
@@ -971,7 +971,7 @@
 					},
 					"response": [
 						{
-							"name": "Get species by id",
+							"name": "/species/id",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -1001,15 +1001,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "83"
+									"value": "81"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"53-iJ3PvP3SxQClZBNCQOcakI6Cwb4\""
+									"value": "W/\"51-xgY3wN17PUQo1tWewUhK9sCgf/8\""
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 20:06:52 GMT"
+									"value": "Tue, 03 Dec 2019 09:44:10 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1017,7 +1017,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Human\",\n        \"origin\": \"Earth\",\n        \"name_generator\": null,\n        \"user_generated\": 0\n    }\n]"
+							"body": "{\n    \"id\": 1,\n    \"name\": \"Human\",\n    \"origin\": \"Earth\",\n    \"name_generator\": null,\n    \"user_generated\": 0\n}"
 						}
 					]
 				},
@@ -1056,7 +1056,7 @@
 					},
 					"response": [
 						{
-							"name": "Create a new species record",
+							"name": "/species",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -1109,7 +1109,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 18:02:50 GMT"
+									"value": "Tue, 03 Dec 2019 09:45:47 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1156,7 +1156,7 @@
 					},
 					"response": [
 						{
-							"name": "Update a species record",
+							"name": "/species",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [
@@ -1209,7 +1209,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 18:04:28 GMT"
+									"value": "Tue, 03 Dec 2019 09:48:06 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1241,7 +1241,7 @@
 					},
 					"response": [
 						{
-							"name": "Delete a species record",
+							"name": "/species/id",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
@@ -1279,7 +1279,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 18:05:19 GMT"
+									"value": "Tue, 03 Dec 2019 09:48:44 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1339,7 +1339,7 @@
 					},
 					"response": [
 						{
-							"name": "Get all ranks",
+							"name": "/ranks",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -1376,7 +1376,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 19:02:19 GMT"
+									"value": "Tue, 03 Dec 2019 09:50:13 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1394,33 +1394,33 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/ranks/1",
+							"raw": "localhost:3000/ranks/3",
 							"host": [
 								"localhost"
 							],
 							"port": "3000",
 							"path": [
 								"ranks",
-								"1"
+								"3"
 							]
 						},
 						"description": "Get a rank by `id`."
 					},
 					"response": [
 						{
-							"name": "Get rank by id",
+							"name": "/ranks/id",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:3000/ranks/1",
+									"raw": "localhost:3000/ranks/3",
 									"host": [
 										"localhost"
 									],
 									"port": "3000",
 									"path": [
 										"ranks",
-										"1"
+										"3"
 									]
 								}
 							},
@@ -1438,15 +1438,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "47"
+									"value": "60"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"2f-xn0Mp9fGPC2poUrQMfm3GrAGkfk\""
+									"value": "W/\"3c-nTE6lz7p9zdGHZLvkzRU1LjHp3c\""
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 18:59:59 GMT"
+									"value": "Tue, 03 Dec 2019 09:50:40 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1454,7 +1454,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Civilian\",\n        \"user_generated\": 0\n    }\n]"
+							"body": "{\n    \"id\": 3,\n    \"name\": \"Lieutenant Junior Grade\",\n    \"user_generated\": 0\n}"
 						}
 					]
 				},
@@ -1493,7 +1493,7 @@
 					},
 					"response": [
 						{
-							"name": "Create a new rank",
+							"name": "/ranks",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -1546,7 +1546,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 19:00:40 GMT"
+									"value": "Tue, 03 Dec 2019 09:52:12 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1593,7 +1593,7 @@
 					},
 					"response": [
 						{
-							"name": "Update a rank",
+							"name": "/ranks",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [
@@ -1646,7 +1646,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 19:01:58 GMT"
+									"value": "Tue, 03 Dec 2019 09:53:24 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1678,7 +1678,7 @@
 					},
 					"response": [
 						{
-							"name": "Delete a rank",
+							"name": "/ranks/id",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
@@ -1716,7 +1716,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 19:02:16 GMT"
+									"value": "Tue, 03 Dec 2019 09:54:04 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1776,7 +1776,7 @@
 					},
 					"response": [
 						{
-							"name": "Get all character-ship relationships",
+							"name": "/characterships",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -1813,7 +1813,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 19:11:12 GMT"
+									"value": "Tue, 03 Dec 2019 09:57:03 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1845,7 +1845,7 @@
 					},
 					"response": [
 						{
-							"name": "Get a character-ship relationship by its id",
+							"name": "/characterships/id",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -1875,15 +1875,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "63"
+									"value": "61"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"3f-q4LZ+5RSEGFamgEImPObs26FTkk\""
+									"value": "W/\"3d-p2yyZeCAHh+N/TTYvgB/Rs+s0ug\""
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 19:13:16 GMT"
+									"value": "Tue, 03 Dec 2019 09:57:44 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1891,7 +1891,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": 1,\n        \"character_id\": 1,\n        \"ship_id\": 4,\n        \"effective_date\": \"2333\"\n    }\n]"
+							"body": "{\n    \"id\": 1,\n    \"character_id\": 1,\n    \"ship_id\": 4,\n    \"effective_date\": \"2333\"\n}"
 						}
 					]
 				},
@@ -1916,7 +1916,7 @@
 					},
 					"response": [
 						{
-							"name": "Get all character-ship relationships by a character id",
+							"name": "/characterships/bycharacterid/id",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -1955,7 +1955,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 19:24:56 GMT"
+									"value": "Tue, 03 Dec 2019 09:58:24 GMT"
 								},
 								{
 									"key": "Connection",
@@ -1988,7 +1988,7 @@
 					},
 					"response": [
 						{
-							"name": "localhost:3000/characterships/byshipid/1",
+							"name": "/characterships/byshipid/id",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -2027,7 +2027,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 19:23:32 GMT"
+									"value": "Tue, 03 Dec 2019 10:01:16 GMT"
 								},
 								{
 									"key": "Connection",
@@ -2074,7 +2074,7 @@
 					},
 					"response": [
 						{
-							"name": "localhost:3000/characterships",
+							"name": "/characterships",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -2087,7 +2087,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"character_id\": 1,\n\t\"ship_id\":3,\n\t\"effective_date\":\"2350\"\n}",
+									"raw": "{\n\t\"character_id\":1,\n\t\"ship_id\":3,\n\t\"effective_date\":\"2350\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2127,7 +2127,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 19:27:07 GMT"
+									"value": "Tue, 03 Dec 2019 10:02:05 GMT"
 								},
 								{
 									"key": "Connection",
@@ -2153,7 +2153,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\":31,\n\t\"character_id\":1,\n\t\"ship_id\":3,\n\t\"effective_date\":\"July 10, 2344\"\n}",
+							"raw": "{\n\t\"id\":32,\n\t\"character_id\":1,\n\t\"ship_id\":3,\n\t\"effective_date\":\"July 10, 2350\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2174,7 +2174,7 @@
 					},
 					"response": [
 						{
-							"name": "localhost:3000/characterships",
+							"name": "/characterships",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [
@@ -2187,7 +2187,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"id\":31,\n\t\"character_id\":1,\n\t\"ship_id\":3,\n\t\"effective_date\":\"July 10, 2344\"\n}",
+									"raw": "{\n\t\"id\":32,\n\t\"character_id\":1,\n\t\"ship_id\":3,\n\t\"effective_date\":\"July 10, 2350\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2227,7 +2227,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 20:27:44 GMT"
+									"value": "Tue, 03 Dec 2019 10:05:55 GMT"
 								},
 								{
 									"key": "Connection",
@@ -2259,7 +2259,7 @@
 					},
 					"response": [
 						{
-							"name": "localhost:3000/characterships/id",
+							"name": "/characterships/id",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
@@ -2297,7 +2297,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 20:25:13 GMT"
+									"value": "Tue, 03 Dec 2019 10:06:55 GMT"
 								},
 								{
 									"key": "Connection",
@@ -2357,7 +2357,7 @@
 					},
 					"response": [
 						{
-							"name": "localhost:3000/characterranks",
+							"name": "/characterranks",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -2394,7 +2394,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 21:31:21 GMT"
+									"value": "Tue, 03 Dec 2019 10:07:57 GMT"
 								},
 								{
 									"key": "Connection",
@@ -2426,7 +2426,7 @@
 					},
 					"response": [
 						{
-							"name": "localhost:3000/characterranks/id",
+							"name": "/characterranks/id",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -2456,15 +2456,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "63"
+									"value": "61"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"3f-seSAKzaUtivVx/XgvqUKkAPMIMc\""
+									"value": "W/\"3d-oMmNWU74L1Y2DR1m6LYrg4yj8w8\""
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 21:36:59 GMT"
+									"value": "Tue, 03 Dec 2019 10:08:17 GMT"
 								},
 								{
 									"key": "Connection",
@@ -2472,7 +2472,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": 1,\n        \"character_id\": 1,\n        \"rank_id\": 2,\n        \"effective_date\": \"2327\"\n    }\n]"
+							"body": "{\n    \"id\": 1,\n    \"character_id\": 1,\n    \"rank_id\": 2,\n    \"effective_date\": \"2327\"\n}"
 						}
 					]
 				},
@@ -2497,7 +2497,7 @@
 					},
 					"response": [
 						{
-							"name": "localhost:3000/characterranks/bycharacterid/1",
+							"name": "/characterranks/bycharacterid/id",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -2536,7 +2536,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 21:38:17 GMT"
+									"value": "Tue, 03 Dec 2019 10:09:51 GMT"
 								},
 								{
 									"key": "Connection",
@@ -2583,7 +2583,7 @@
 					},
 					"response": [
 						{
-							"name": "localhost:3000/characterranks",
+							"name": "/characterranks",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -2636,7 +2636,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 21:45:16 GMT"
+									"value": "Tue, 03 Dec 2019 10:11:21 GMT"
 								},
 								{
 									"key": "Connection",
@@ -2683,7 +2683,7 @@
 					},
 					"response": [
 						{
-							"name": "localhost:3000/characterranks",
+							"name": "/characterranks",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [
@@ -2736,7 +2736,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 21:48:25 GMT"
+									"value": "Tue, 03 Dec 2019 10:11:56 GMT"
 								},
 								{
 									"key": "Connection",
@@ -2768,7 +2768,7 @@
 					},
 					"response": [
 						{
-							"name": "localhost:3000/characterranks/id",
+							"name": "/characterranks/id",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
@@ -2806,7 +2806,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 02 Dec 2019 21:50:17 GMT"
+									"value": "Tue, 03 Dec 2019 10:12:40 GMT"
 								},
 								{
 									"key": "Connection",
