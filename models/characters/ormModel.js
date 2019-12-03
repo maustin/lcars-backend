@@ -28,7 +28,6 @@ function readOne(id, callback) {
 			attributes: ['name']
 		}]
 	}).then(row => {
-		console.log(row)
 		callback(null, [row]);
 	}).catch(error => {
 		console.error('SEQUELIZE characters.readOne ERROR:', error);

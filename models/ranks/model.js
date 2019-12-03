@@ -8,12 +8,17 @@ function readAll(callback) {
 
 // get single
 function readOne(id, callback) {
-	database.all('SELECT * FROM ranks WHERE ranks.id = ?', [id], callback);
+	database.get('SELECT * FROM ranks WHERE ranks.id = ?', [id], callback);
 }
 
 // delete
 function remove(id, callback) {
-	database.run('DELETE FROM ranks WHERE id = ?', [id], callback);
+	database.get('SELECT id FROM ranks WHERE id = ?', [id], (error, data) => {
+		if (data)
+			database.run('DELETE FROM ranks WHERE id = ?', [id], callback);
+		else
+			callback(404, null);
+	});
 }
 
 // create
@@ -35,14 +40,19 @@ function update(parameters, callback) {
 	});
 	paramFields.push(id);
 
-	database.run('UPDATE ranks SET ' + setFields.join(', ') + ' WHERE id = ?', paramFields, callback);
+	database.get('SELECT id FROM ranks WHERE id = ?', [id], (error, data) => {
+		if (data)
+			database.run('UPDATE ranks SET ' + setFields.join(', ') + ' WHERE id = ?', paramFields, callback);
+		else
+			callback(404, null);
+	});
 }
 
 database.all('PRAGMA table_info(ranks)', (error, rows) => {
-	if (error) console.error(error);
-	else {
+	if (error)
+		console.error(error);
+	else
 		rows.forEach(item => COLUMN_DATA.push(item));
-	}
 });
 
 module.exports = { readAll, readOne, create, update, remove, COLUMN_DATA };

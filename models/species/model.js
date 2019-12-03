@@ -13,7 +13,7 @@ function readOne(id, callback) {
 
 // delete
 function remove(id, callback) {
-	database.get('SELECT species.id FROM species WHERE id = ?', [id], (error, data) => {
+	database.get('SELECT id FROM species WHERE id = ?', [id], (error, data) => {
 		if (data)
 			database.run('DELETE FROM species WHERE id = ?', [id], callback);
 		else
@@ -40,7 +40,7 @@ function update(parameters, callback) {
 	});
 	paramFields.push(id);
 
-	database.get('SELECT species.id FROM species WHERE id = ?', [id], (error, data) => {
+	database.get('SELECT id FROM species WHERE id = ?', [id], (error, data) => {
 		if (data)
 			database.run('UPDATE species SET ' + setFields.join(', ') + ' WHERE id = ?', paramFields, callback);
 		else
