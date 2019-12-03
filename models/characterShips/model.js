@@ -8,7 +8,7 @@ function readAll(callback) {
 
 // get single
 function readOne(id, callback) {
-	database.all('SELECT * FROM character_ship WHERE id = ?', [id], callback);
+	database.get('SELECT * FROM character_ship WHERE id = ?', [id], callback);
 }
 
 // get all with character id
@@ -26,7 +26,12 @@ function readAllWithShipId(id, callback) {
 
 // delete
 function remove(id, callback) {
-	database.run('DELETE FROM character_ship WHERE id = ?', [id], callback);
+	database.get('SELECT id FROM character_ship WHERE id = ?', [id], (error, data) => {
+		if (data)
+			database.run('DELETE FROM character_ship WHERE id = ?', [id], callback);
+		else
+			callback(404, null);
+	});
 }
 
 // create
@@ -48,14 +53,19 @@ function update(parameters, callback) {
 	});
 	paramFields.push(id);
 
-	database.run('UPDATE character_ship SET ' + setFields.join(', ') + ' WHERE id = ?', paramFields, callback);
+	database.get('SELECT id FROM character_ship WHERE id = ?', [id], (error, data) => {
+		if (data)
+			database.run('UPDATE character_ship SET ' + setFields.join(', ') + ' WHERE id = ?', paramFields, callback);
+		else
+			callback(404, null);
+	});
 }
 
 database.all('PRAGMA table_info(character_ship)', (error, rows) => {
-	if (error) console.error(error);
-	else {
+	if (error)
+		console.error(error);
+	else
 		rows.forEach(item => COLUMN_DATA.push(item));
-	}
 });
 
 module.exports = { readAll, readOne, readAllWithCharacterId, readAllWithShipId, create, update, remove, COLUMN_DATA };
