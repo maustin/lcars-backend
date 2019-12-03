@@ -1,5 +1,6 @@
 # Project 2 - Star Trek API
 #### An API covering Characters, Ships, Species, and Ranks from Star Trek eras TNG (The Next Generation) to DS9 (Deep Space 9).
+_Note:_ The database file is not included in this repo. To create the initial database, run `node seed.js`.
 
 ## Entity Relationship Diagram
 ![ERD Diagram](https://i.ibb.co/TK8ZW81/Star-Trek-API.png)
