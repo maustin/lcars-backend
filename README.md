@@ -1,5 +1,5 @@
 # Project 2 - Star Trek API
-#### (TNG - DS9 Era)
+#### An API covering Characters, Ships, Species, and Ranks from Star Trek eras TNG (The Next Generation) to DS9 (Deep Space 9).
 
 ## Entity Relationship Diagram
 ![ERD Diagram](https://i.ibb.co/TK8ZW81/Star-Trek-API.png)
