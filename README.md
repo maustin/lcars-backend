@@ -8,11 +8,12 @@
 [Check out the API Docs on Postman!](https://documenter.getpostman.com/view/9534886/SWE27KyV)
 
 ## Technologies Used
-- Node
-- Express
-- SQLite
-- SQLite3
-- Sequelize
+- [Node](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+- [SQLite3](https://www.npmjs.com/package/sqlite3)
+- [Sequelize](https://sequelize.org/]
+- ERD via [dbdiagram.io](https://dbdiagram.io/home)
+- API docs via [Postman](https://www.getpostman.com/)
 
 ## Next Steps
 - React GUI
