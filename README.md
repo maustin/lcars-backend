@@ -7,6 +7,11 @@
 ## API Documentation
 [Check out the API Docs on Postman!](https://documenter.getpostman.com/view/9534886/SWE27KyV)
 
+## Object-Relational Mapping
+As an additional task, I implemented a duplicate API that works through the Sequelize ORM library. To access this version of the API, simply prepend `/orm` to the request.
+
+For example, get all characters with request `/characters` would become `/orm/characters`.
+
 ## Technologies Used
 - [Node](https://nodejs.org/)
 - [Express](https://expressjs.com/)
