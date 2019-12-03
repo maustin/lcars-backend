@@ -1,4 +1,4 @@
-const COLUMN_NAME = ["id", "name", "origin", "name_generator", "user_generated"];
+const COLUMN_NAMES = ["id", "name", "origin", "name_generator", "user_generated"];
 
 let orm = require('../../sequelize');
 let table = orm.species;
@@ -39,7 +39,7 @@ function create(parameters, callback) {
 		origin: parameters.origin,
 		user_generated: 1
 	}).then(row => {
-		callback(null);
+		callback(null, row);
 	}).catch(error => {
 		console.error('SEQUELIZE species.create ERROR:', error);
 		callback(error);
@@ -50,7 +50,7 @@ function update(parameters, callback) {
 	let id = parameters.id;
 	let updateObject = {};
 	
-	COLUMN_NAME.forEach(column => {
+	COLUMN_NAMES.forEach(column => {
 		if (parameters[column] != undefined) {
 			updateObject[column] = parameters[column];
 		}
@@ -67,4 +67,4 @@ function update(parameters, callback) {
 	});
 }
 
-module.exports = { readAll, readOne, remove, create, update };
+module.exports = { readAll, readOne, remove, create, update, COLUMN_NAMES };

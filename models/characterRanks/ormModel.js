@@ -15,7 +15,7 @@ function readAll(callback) {
 function readOne(id, callback) {
 	//table.findByPk(id).then(row => {
 	table.findOne({ where: { id: id }, raw: true }).then(row => {
-		callback(null, [row]);
+		callback(null, row);
 	}).catch(error => {
 		console.error('SEQUELIZE character_rank.readOne ERROR:', error);
 		callback(error);
@@ -56,7 +56,7 @@ function create(parameters, callback) {
 		rank_id: parameters.rank_id,
 		effective_date: parameters.effective_date
 	}).then(row => {
-		callback(null);
+		callback(null, row);
 	}).catch(error => {
 		console.error('SEQUELIZE character_rank.create ERROR:', error);
 		callback(error);
@@ -77,7 +77,7 @@ function update(parameters, callback) {
 		where: { id: id },
 		returning: false
 	}).then(rowsUpdated => {
-		callback(null);
+		callback(null, rowsUpdated);
 	}).catch(error => {
 		console.error('SEQUELIZE character_rank.update ERROR:', error);
 		callback(error);

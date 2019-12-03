@@ -26,14 +26,12 @@ router.get('/:id', (request, response, next) => {
 // delete
 router.delete('/:id', (request, response, next) => {
 	model.remove(request.params.id, (error, data) => {
-		if (error) {
-			if (error == 404)
-				response.status(404).send(`Ship id ${request.params.id} not found.`);
-			else
-				next(error);
-		}
-		else
+		if (error)
+			next(error);
+		else if (data)
 			response.sendStatus(200);
+		else
+			response.status(404).send(`Ship id ${request.params.id} not found.`);
 	});
 });
 
@@ -50,14 +48,12 @@ router.post('/', (request, response, next) => {
 // update
 router.put('/', (request, response, next) => {
 	model.update(request.body, (error, data) => {
-		if (error) {
-			if (error == 404)
-				response.status(404).send(`Ship id ${request.body.id} not found.`);
-			else
-				next(error);
-		}
-		else
+		if (error)
+			next(error);
+		else if (data == 0)
 			response.sendStatus(200);
+		else
+			response.status(404).send(`Ship id ${request.body.id} not found.`);
 	});
 });
 

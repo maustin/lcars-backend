@@ -24,8 +24,7 @@ function readOne(id, callback) {
 		where: { id: id },
 		raw: true
 	}).then(row => {
-		// wrapping this in an array to match raw sql return 
-		callback(null, [row]);
+		callback(null, row);
 	}).catch(error => {
 		console.error('SEQUELIZE ranks.readOne ERROR:', error);
 		callback(error);
@@ -49,8 +48,8 @@ function create(parameters, callback) {
 		user_generated: 1
 	}).then(row => {
 		// raw sql doesn't return the result, so we won't either
-		//callback(null, [row.get({ plain: true })]);
-		callback(null);
+		//callback(null, row.get({ plain: true }));
+		callback(null, row);
 	}).catch(error => {
 		console.error('SEQUELIZE ranks.create ERROR:', error);
 		callback(error);
@@ -71,7 +70,7 @@ function update(parameters, callback) {
 		where: { id: id },
 		returning: false
 	}).then(rowsUpdated => {
-		callback(null);
+		callback(null, rowsUpdated);
 	}).catch(error => {
 		console.error('SEQUELIZE ranks.update ERROR:', error);
 		callback(error);

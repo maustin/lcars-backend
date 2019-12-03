@@ -15,7 +15,7 @@ function readAll(callback) {
 function readOne(id, callback) {
 	//table.findByPk(id).then(row => {
 	table.findOne({ where: { id: id }, raw: true }).then(row => {
-		callback(null, [row]);
+		callback(null, row);
 	}).catch(error => {
 		console.error('SEQUELIZE ships.readOne ERROR:', error);
 		callback(error);
@@ -42,7 +42,7 @@ function create(parameters, callback) {
 		image: parameters.image,
 		user_generated: 1
 	}).then(row => {
-		callback(null);
+		callback(null, row);
 	}).catch(error => {
 		console.error('SEQUELIZE ships.create ERROR:', error);
 		callback(error);
@@ -63,7 +63,7 @@ function update(parameters, callback) {
 		where: { id: id },
 		returning: false
 	}).then(rowsUpdated => {
-		callback(null);
+		callback(null, rowsUpdated);
 	}).catch(error => {
 		console.error('SEQUELIZE ships.update ERROR:', error);
 		callback(error);

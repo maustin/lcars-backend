@@ -28,7 +28,7 @@ function readOne(id, callback) {
 			attributes: ['name']
 		}]
 	}).then(row => {
-		callback(null, [row]);
+		callback(null, row);
 	}).catch(error => {
 		console.error('SEQUELIZE characters.readOne ERROR:', error);
 		callback(error);
@@ -57,7 +57,7 @@ function create(parameters, callback) {
 		status: parameters.status,
 		user_generated: 1
 	}).then(row => {
-		callback(null);
+		callback(null, row);
 	}).catch(error => {
 		console.error('SEQUELIZE characters.create ERROR:', error);
 		callback(error);
@@ -78,7 +78,7 @@ function update(parameters, callback) {
 		where: { id: id },
 		returning: false
 	}).then(rowsUpdated => {
-		callback(null);
+		callback(null, rowsUpdated);
 	}).catch(error => {
 		console.error('SEQUELIZE characters.update ERROR:', error);
 		callback(error);
