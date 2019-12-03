@@ -27,7 +27,7 @@ router.get('/bycharacterid/:id', (request, response, next) => {
 	model.readAllWithCharacterId(request.params.id, (error, data) => {
 		if (error)
 			next(error);
-		else if (data)
+		else if (data && data.length)
 			response.json(data);
 		else
 			response.status(404).send(`character_ship(s) with character_id ${request.params.id} not found`);
@@ -35,12 +35,14 @@ router.get('/bycharacterid/:id', (request, response, next) => {
 });
 
 router.get('/byshipid/:id', (request, response, next) => {
-	// TODO if really needed
-	response.sendStatus(418);
-	/*model.readAllWithShipId(request.params.id, (error, data) => {
-		if (error) next(error);
-		else response.json(data);
-	});*/
+	model.readAllWithShipId(request.params.id, (error, data) => {
+		if (error)
+			next(error);
+		else if (data && data.length)
+			response.json(data);
+		else
+			response.status(404).send(`character_ship(s) with ship_id ${request.params.id} not found`);
+	});
 });
 
 // delete

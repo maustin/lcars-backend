@@ -27,7 +27,7 @@ router.get('/bycharacterid/:id', (request, response, next) => {
 	model.readAllWithCharacterId(request.params.id, (error, data) => {
 		if (error)
 			next(error);
-		else if (data)
+		else if (data && data.length)
 			response.json(data);
 		else
 			response.status(404).send(`character_rank(s) with character_id ${request.params.id} not found`);

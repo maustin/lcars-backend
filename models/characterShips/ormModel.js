@@ -43,8 +43,21 @@ function readAllWithCharacterId(id, callback) {
 
 // get all with ship id
 function readAllWithShipId(id, callback) {
-	// TODO: I'll complete this if the UI actually needs it.
-	//database.all('SELECT character_ship.id, characters.id AS character_id, characters.name, effective_date FROM character_ship JOIN characters ON character_ship.character_id = characters.id WHERE ship_id = ?', [id], callback);
+	table.findAll({
+		where: { ship_id: id },
+		raw: true,
+		freezeTableName: true,
+		underscored: true,
+		include: [{
+			model: orm.characters,
+			attributes: ['name']
+		}]
+	}).then(rows => {
+		callback(null, rows);
+	}).catch(error => {
+		console.error('SEQUELIZE character_ship.readAllWithShipId ERROR:', error);
+		callback(error);
+	})
 }
 
 // delete
