@@ -26,12 +26,14 @@ router.get('/:id', (request, response, next) => {
 // delete
 router.delete('/:id', (request, response, next) => {
 	model.remove(request.params.id, (error, data) => {
-		if (error)
-			next(error);
-		else if (data)
-			response.sendStatus(200);
+		if (error) {
+			if (error == 404)
+				response.status(404).send(`ships id ${request.params.id} not found`);
+			else
+				next(error);
+		}
 		else
-			response.status(404).send(`ships id ${request.params.id} not found`);
+			response.sendStatus(200);
 	});
 });
 
