@@ -21,4 +21,6 @@ For example, get all characters with request `/characters` would become `/orm/ch
 - API docs via [Postman](https://www.getpostman.com/)
 
 ## Next Steps
+- Only parse request for JSON if JSON is expected (POST, PUT)
 - React GUI
+- [JOI validation](https://github.com/hapijs/joi)
