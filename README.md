@@ -6,7 +6,11 @@ _Note:_ The database file is not included in this repo. To create the initial da
 ![ERD Diagram](https://i.ibb.co/TK8ZW81/Star-Trek-API.png)
 
 ## API Documentation
+SQL Version:<br/>
 [Check out the API Docs on Postman!](https://documenter.getpostman.com/view/9534886/SWE27KyV)
+
+Sequelize ORM Version:<br/>
+[Check out the ORM API Docs on Postman!](https://documenter.getpostman.com/view/9534886/SWE28KtM)
 
 ## Object-Relational Mapping
 As an additional task, I implemented a duplicate API that works through the Sequelize ORM library. To access this version of the API, simply prepend `/orm` to the request.
