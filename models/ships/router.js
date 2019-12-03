@@ -19,7 +19,7 @@ router.get('/:id', (request, response, next) => {
 		else if (data)
 			response.json(data);
 		else
-			response.status(404).send(`Ship id ${request.params.id} not found.`);
+			response.status(404).send(`ships id ${request.params.id} not found`);
 	});
 });
 
@@ -31,7 +31,7 @@ router.delete('/:id', (request, response, next) => {
 		else if (data)
 			response.sendStatus(200);
 		else
-			response.status(404).send(`Ship id ${request.params.id} not found.`);
+			response.status(404).send(`ships id ${request.params.id} not found`);
 	});
 });
 
@@ -53,7 +53,7 @@ router.put('/', (request, response, next) => {
 		else if (data == 0)
 			response.sendStatus(200);
 		else
-			response.status(404).send(`Ship id ${request.body.id} not found.`);
+			response.status(404).send(`ships id ${request.body.id} not found`);
 	});
 });
 

@@ -19,7 +19,7 @@ router.get('/:id', (request, response, next) => {
 		else if (data)
 			response.json(data);
 		else
-			response.status(404).send(`character_ship id ${request.params.id} not found.`);
+			response.status(404).send(`character_ship id ${request.params.id} not found`);
 	});
 });
 
@@ -30,7 +30,7 @@ router.get('/bycharacterid/:id', (request, response, next) => {
 		else if (data)
 			response.json(data);
 		else
-			response.status(404).send(`character_ship(s) with character_id ${request.params.id} not found.`);
+			response.status(404).send(`character_ship(s) with character_id ${request.params.id} not found`);
 	});
 });
 
@@ -41,7 +41,7 @@ router.get('/byshipid/:id', (request, response, next) => {
 		else if (data)
 			response.json(data);
 		else
-			response.status(404).send(`character_ship(s) with ship_id ${request.params.id} not found.`);
+			response.status(404).send(`character_ship(s) with ship_id ${request.params.id} not found`);
 	});
 });
 
@@ -50,7 +50,7 @@ router.delete('/:id', (request, response, next) => {
 	model.remove(request.params.id, (error, data) => {
 		if (error) {
 			if (error == 404)
-				response.status(404).send(`character_ship id ${request.params.id} not found.`);
+				response.status(404).send(`character_ship id ${request.params.id} not found`);
 			else
 				next(error);
 		}
@@ -74,7 +74,7 @@ router.put('/', (request, response, next) => {
 	model.update(request.body, (error, data) => {
 		if (error) {
 			if (error == 404)
-				response.status(404).send(`character_ship id ${request.body.id} not found.`);
+				response.status(404).send(`character_ship id ${request.body.id} not found`);
 			else
 				next(error);
 		}
