@@ -15,7 +15,7 @@ function readAll(callback) {
 function readOne(id, callback) {
 	//table.findByPk(id).then(row => {
 	table.findOne({ where: { id: id }, raw: true }).then(row => {
-		callback(null, [row]);
+		callback(null, row);
 	}).catch(error => {
 		console.error('SEQUELIZE species.readOne ERROR:', error);
 		callback(error);
@@ -60,7 +60,7 @@ function update(parameters, callback) {
 		where: { id: id },
 		returning: false
 	}).then(rowsUpdated => {
-		callback(null);
+		callback(null, rowsUpdated);
 	}).catch(error => {
 		console.error('SEQUELIZE species.update ERROR:', error);
 		callback(error);
