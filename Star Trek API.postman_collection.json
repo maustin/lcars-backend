@@ -2,430 +2,15 @@
 	"info": {
 		"_postman_id": "11a9b0cf-8882-415d-a4f9-83a59875e5be",
 		"name": "Star Trek API",
-		"description": "An API covering Characters and Ships from Star Trek eras TNG (The Next Generation) to DS9 (Deep Space 9).",
+		"description": "An API covering Characters, Ships, Species, and Ranks from _Star Trek_ eras TNG (The Next Generation) to DS9 (Deep Space 9).\n\nThe primary tables are `characters` and `ships`.\n\nEach character will belong to one `species`.\n\nEach character can have held multiple ranks over their lifetime. These character-rank relationships are stored in the `character_rank` table. Each record in the table will reference a character, a rank, and the date that rank took effect.\n\nEach character can also have served aboard multiple ships. These character-ship relationships are stored in the `character_ship` table. Each record will reference a character, a ship, and the date the character began serving on that ship.\n\n#### Delete Cascade\nWhen deleting a character, any records in `character_rank` and `character_ship` that reference that character will also be deleted.\n\nSimilarly when deleting a ship or rank, any associated records in `character_rank` and `character_ship` will also be deleted.\n\n#### User Generated Content\nA `user_generated` field exists on each character, ship, species, and rank record. This property is set to `1` for all POST methods.\nIn the future, DELETE requests will only be permitted where the `user_generated` value equals `1`.\n\n#### A Note About Canon\nSome details may appear to be missing, for example ranks held by Jean-Luc Picard between Ensign and Captain. This lack of information is simply because these details were never established in canon.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Ships",
-			"item": [
-				{
-					"name": "localhost:3000/ships",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:3000/ships",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"ships"
-							]
-						},
-						"description": "Get all Ship records."
-					},
-					"response": [
-						{
-							"name": "localhost:3000/ships",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "localhost:3000/ships",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"ships"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "1620"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"654-/dgGBrs4Gp2ZxnWpmkXV10RwefY\""
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 02 Dec 2019 17:26:58 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"USS Enterprise\",\n        \"class\": \"Galaxy-class\",\n        \"registry\": \"NCC-1701-D\",\n        \"status\": \"Destroyed, 2371\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 2,\n        \"name\": \"USS Enterprise\",\n        \"class\": \"Sovereign-class\",\n        \"registry\": \"NCC-1701-E\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Deep Space 9\",\n        \"class\": \"Terok Nor-type\",\n        \"registry\": \"\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 4,\n        \"name\": \"USS Stargazer\",\n        \"class\": \"Constellation-class\",\n        \"registry\": \"NCC-2893\",\n        \"status\": \"Recovered, 2364\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 5,\n        \"name\": \"USS Pegasus\",\n        \"class\": \"Oberth-class\",\n        \"registry\": \"NCC-53847\",\n        \"status\": \"Wrecked, 2358\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 6,\n        \"name\": \"USS Potemkin\",\n        \"class\": \"Excelsior-class\",\n        \"registry\": \"NCC-2005\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 7,\n        \"name\": \"USS Hood\",\n        \"class\": \"Excelsior-class\",\n        \"registry\": \"NCC-42296\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 8,\n        \"name\": \"USS Trieste\",\n        \"class\": \"Merced-class\",\n        \"registry\": \"NCC-37124\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 9,\n        \"name\": \"USS Victory\",\n        \"class\": \"Constellation-class\",\n        \"registry\": \"NCC-9754\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 10,\n        \"name\": \"USS Saratoga\",\n        \"class\": \"Miranda-class\",\n        \"registry\": \"NCC-31911\",\n        \"status\": \"Destroyed, 2366\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 11,\n        \"name\": \"USS Livingston\",\n        \"class\": \"\",\n        \"registry\": \"\",\n        \"status\": \"\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 12,\n        \"name\": \"USS Okinawa\",\n        \"class\": \"\",\n        \"registry\": \"\",\n        \"status\": \"\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 13,\n        \"name\": \"USS Titan\",\n        \"class\": \"Luna-class\",\n        \"registry\": \"NCC-80102\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    }\n]"
-						}
-					]
-				},
-				{
-					"name": "localhost:3000/ships/id",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:3000/ships/1",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"ships",
-								"1"
-							]
-						},
-						"description": "Get a Ship by specified `id`."
-					},
-					"response": [
-						{
-							"name": "localhost:3000/ships/1",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "localhost:3000/ships/1",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"ships",
-										"1"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "138"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"8a-ZiEuVHCY+hkZPOvF1adx17o4gkA\""
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 02 Dec 2019 17:21:08 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"USS Enterprise\",\n        \"class\": \"Galaxy-class\",\n        \"registry\": \"NCC-1701-D\",\n        \"status\": \"Destroyed, 2371\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    }\n]"
-						}
-					]
-				},
-				{
-					"name": "localhost:3000/ships",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"name\":\"USS Assembly\",\n\t\"class\":\"Nebula-class\",\n\t\"registry\":\"NCC-24309\",\n\t\"status\":\"Active\",\n\t\"image\":\"yoursite.com/image.png\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:3000/ships",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"ships"
-							]
-						},
-						"description": "Create a new Ship.\n\n### Parameters\n- `name` : The ship's name.\n- `registry` : The ship's registry.\n- `class` : The ship's design classification.\n- `status` : Current status of the ship.\n- `image` : URL path to an image."
-					},
-					"response": [
-						{
-							"name": "localhost:3000/ships",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"name\":\"USS Assembly\",\n\t\"class\":\"Nebula-class\",\n\t\"registry\":\"NCC-24309\",\n\t\"status\":\"Active\",\n\t\"image\":\"yoursite.com/image.png\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "localhost:3000/ships",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"ships"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "plain",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "text/plain; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "2"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 02 Dec 2019 17:23:58 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "OK"
-						}
-					]
-				},
-				{
-					"name": "localhost:3000/ships",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"id\": 14,\n\t\"name\":\"USS General Assembly\",\n\t\"class\":\"Miranda-class\",\n\t\"registry\":\"NCC-24308\",\n\t\"status\":\"Missing, 2301\",\n\t\"image\":\"yourothersite.com/image.png\",\n\t\"user_generated\":1\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:3000/ships",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"ships"
-							]
-						},
-						"description": "Update a Ship.\n\n### Parameters\n- `id` : `Integer` id of the Ship to update.\n- `name` : The ship's name.\n- `registry` : The ship's registry.\n- `class` : The ship's design classification.\n- `status` : Current status of the ship.\n- `image` : URL path to an image.\n- `user_generated` : `Integer` specifying if ship was generated by a user (`1`) or not (`0`)."
-					},
-					"response": [
-						{
-							"name": "localhost:3000/ships",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"id\": 14,\n\t\"name\":\"USS General Assembly\",\n\t\"class\":\"Miranda-class\",\n\t\"registry\":\"NCC-24308\",\n\t\"status\":\"Missing, 2301\",\n\t\"image\":\"yourothersite.com/image.png\",\n\t\"user_generated\":1\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "localhost:3000/ships",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"ships"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "plain",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "text/plain; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "2"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 02 Dec 2019 17:26:21 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "OK"
-						}
-					]
-				},
-				{
-					"name": "localhost:3000/ships/id",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "localhost:3000/ships/14",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"ships",
-								"14"
-							]
-						},
-						"description": "Delete a Ship by `id`.\n\n_Any Character-Ship relationship records associated with this Ship will also be deleted._"
-					},
-					"response": [
-						{
-							"name": "localhost:3000/ships/14",
-							"originalRequest": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "localhost:3000/ships/14",
-									"host": [
-										"localhost"
-									],
-									"port": "3000",
-									"path": [
-										"ships",
-										"14"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "plain",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Content-Type",
-									"value": "text/plain; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "2"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 02 Dec 2019 17:26:54 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "OK"
-						}
-					]
-				}
-			],
-			"description": "Requests relating the the Ships table.",
-			"protocolProfileBehavior": {}
-		},
-		{
 			"name": "Characters",
 			"item": [
 				{
-					"name": "localhost:3000/characters",
+					"name": "/characters",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -439,7 +24,7 @@
 								"characters"
 							]
 						},
-						"description": "Get all Character records."
+						"description": "Get all character records."
 					},
 					"response": [
 						{
@@ -493,7 +78,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/characters/id",
+					"name": "/characters/id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -508,7 +93,7 @@
 								"1"
 							]
 						},
-						"description": "Get a Character by `id`."
+						"description": "Get a character by `id`."
 					},
 					"response": [
 						{
@@ -563,7 +148,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/characters",
+					"name": "/characters",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -593,7 +178,7 @@
 								"characters"
 							]
 						},
-						"description": "Create a new Character.\n\n### Parameters\n- `name` : The character's name.\n- `species_id` : `Integer` pointing to a Species id.\n- `gender` : A string representing a character's gender. Typically `m` for male and `f` for female.\n- `dob` : A string date specifying the characters date of birth.\n- `actor` : The name of the actor who protrayed the character.\n- `image` : URL path to an image.\n- `status` : Current status of the character."
+						"description": "Create a new character.\n\n### Parameters\n- `name` : `String` The character's name.\n- `species_id` : `Integer` Species id.\n- `gender` : `String` The character's gender, typically `m` for male and `f` for female.\n- `dob` : `String` Character's date of birth.\n- `actor` : `String` Name of the actor who protrayed the character.\n- `image` : `String` URL path to an image.\n- `status` : `String` Current status of the character."
 					},
 					"response": [
 						{
@@ -663,7 +248,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/characters",
+					"name": "/characters",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -693,7 +278,7 @@
 								"characters"
 							]
 						},
-						"description": "Update a Character.\n\n### Parameters\n- `id` : `Integer` id of the character to update.\n- `name` : The character's name.\n- `species_id` : `Integer` pointing to a Species id.\n- `gender` : A string representing a character's gender. Typically `m` for male and `f` for female.\n- `dob` : A string date specifying the characters date of birth.\n- `actor` : The name of the actor who protrayed the character.\n- `image` : URL path to an image.\n- `status` : Current status of the character.\n- `user_generated` : `Integer` specifying if character was generated by a user (`1`) or not (`0`)."
+						"description": "Update a character.\n\n### Parameters\n- `id` : `Integer` ID of the character to update.\n- `name` : `String` The character's name.\n- `species_id` : `Integer` Species id.\n- `gender` : `String` The character's gender, typically `m` for male and `f` for female.\n- `dob` : `String` Character's date of birth.\n- `actor` : `String` Name of the actor who protrayed the character.\n- `image` : `String` URL path to an image.\n- `status` : `String` Current status of the character.\n- `user_generated` : `Integer` Specifies if character was generated by a user (`1`) or not (`0`)."
 					},
 					"response": [
 						{
@@ -763,7 +348,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/characters/id",
+					"name": "/characters/id",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -778,7 +363,7 @@
 								"18"
 							]
 						},
-						"description": "Delete a Character by `id`.\n\n_Any Character-Ship relationship records associated with this Character will also be deleted._\n\n_Any Character-Rank relationship records associated with this Character will also be deleted._"
+						"description": "Delete a character by `id`.\n\n_Any character-ship relationship records associated with this character will also be deleted._\n\n_Any character-rank relationship records associated with this character will also be deleted._"
 					},
 					"response": [
 						{
@@ -833,13 +418,473 @@
 					]
 				}
 			],
+			"description": "Requests relating the the `characters` table.\n\n### Fields\n- `id` : `Integer` Character id.\n- `name` : `String` The character's name.\n- `species_id` : `Integer` Species id.\n- `gender` : `String` The character's gender, typically `m` for male and `f` for female.\n- `dob` : `String` Character's date of birth.\n- `actor` : `String` Name of the actor who protrayed the character.\n- `image` : `String` URL path to an image.\n- `status` : `String` Current status of the character.\n- `user_generated` : `Integer` Specifies if character was generated by a user (`1`) or not (`0`).",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "15d57027-98ae-4510-85e8-9990f38d65ec",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f07db42a-bed8-4ee7-b0e6-b44a6e178bd8",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Ships",
+			"item": [
+				{
+					"name": "/ships",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/ships",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ships"
+							]
+						},
+						"description": "Get all ship records."
+					},
+					"response": [
+						{
+							"name": "localhost:3000/ships",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/ships",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ships"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1620"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"654-/dgGBrs4Gp2ZxnWpmkXV10RwefY\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 17:26:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"USS Enterprise\",\n        \"class\": \"Galaxy-class\",\n        \"registry\": \"NCC-1701-D\",\n        \"status\": \"Destroyed, 2371\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 2,\n        \"name\": \"USS Enterprise\",\n        \"class\": \"Sovereign-class\",\n        \"registry\": \"NCC-1701-E\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Deep Space 9\",\n        \"class\": \"Terok Nor-type\",\n        \"registry\": \"\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 4,\n        \"name\": \"USS Stargazer\",\n        \"class\": \"Constellation-class\",\n        \"registry\": \"NCC-2893\",\n        \"status\": \"Recovered, 2364\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 5,\n        \"name\": \"USS Pegasus\",\n        \"class\": \"Oberth-class\",\n        \"registry\": \"NCC-53847\",\n        \"status\": \"Wrecked, 2358\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 6,\n        \"name\": \"USS Potemkin\",\n        \"class\": \"Excelsior-class\",\n        \"registry\": \"NCC-2005\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 7,\n        \"name\": \"USS Hood\",\n        \"class\": \"Excelsior-class\",\n        \"registry\": \"NCC-42296\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 8,\n        \"name\": \"USS Trieste\",\n        \"class\": \"Merced-class\",\n        \"registry\": \"NCC-37124\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 9,\n        \"name\": \"USS Victory\",\n        \"class\": \"Constellation-class\",\n        \"registry\": \"NCC-9754\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 10,\n        \"name\": \"USS Saratoga\",\n        \"class\": \"Miranda-class\",\n        \"registry\": \"NCC-31911\",\n        \"status\": \"Destroyed, 2366\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 11,\n        \"name\": \"USS Livingston\",\n        \"class\": \"\",\n        \"registry\": \"\",\n        \"status\": \"\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 12,\n        \"name\": \"USS Okinawa\",\n        \"class\": \"\",\n        \"registry\": \"\",\n        \"status\": \"\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    },\n    {\n        \"id\": 13,\n        \"name\": \"USS Titan\",\n        \"class\": \"Luna-class\",\n        \"registry\": \"NCC-80102\",\n        \"status\": \"Active\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "/ships/id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/ships/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ships",
+								"1"
+							]
+						},
+						"description": "Get a ship by specified `id`."
+					},
+					"response": [
+						{
+							"name": "localhost:3000/ships/1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/ships/1",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ships",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "138"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8a-ZiEuVHCY+hkZPOvF1adx17o4gkA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 17:21:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"USS Enterprise\",\n        \"class\": \"Galaxy-class\",\n        \"registry\": \"NCC-1701-D\",\n        \"status\": \"Destroyed, 2371\",\n        \"image\": \"\",\n        \"user_generated\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "/ships",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"USS Assembly\",\n\t\"class\":\"Nebula-class\",\n\t\"registry\":\"NCC-24309\",\n\t\"status\":\"Active\",\n\t\"image\":\"yoursite.com/image.png\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/ships",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ships"
+							]
+						},
+						"description": "Create a new ship.\n\n### Parameters\n- `name` : `String` The ship's name.\n- `registry` : `String` The ship's registry.\n- `class` : `String` The ship design classification.\n- `status` : `String` Current status of the ship.\n- `image` : `String` URL path to an image."
+					},
+					"response": [
+						{
+							"name": "localhost:3000/ships",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\":\"USS Assembly\",\n\t\"class\":\"Nebula-class\",\n\t\"registry\":\"NCC-24309\",\n\t\"status\":\"Active\",\n\t\"image\":\"yoursite.com/image.png\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/ships",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ships"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 17:23:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				},
+				{
+					"name": "/ships",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 14,\n\t\"name\":\"USS General Assembly\",\n\t\"class\":\"Miranda-class\",\n\t\"registry\":\"NCC-24308\",\n\t\"status\":\"Missing, 2301\",\n\t\"image\":\"yourothersite.com/image.png\",\n\t\"user_generated\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/ships",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ships"
+							]
+						},
+						"description": "Update a ship.\n\n### Parameters\n- `id` : `Integer` ID of the ship to update.\n- `name` : `String` The ship's name.\n- `registry` : `String` The ship's registry.\n- `class` : `String` The ship design classification.\n- `status` : `String` Current status of the ship.\n- `image` : `String` URL path to an image.\n- `user_generated` : `Integer` Specifies if the ship was generated by a user (`1`) or not (`0`)."
+					},
+					"response": [
+						{
+							"name": "localhost:3000/ships",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": 14,\n\t\"name\":\"USS General Assembly\",\n\t\"class\":\"Miranda-class\",\n\t\"registry\":\"NCC-24308\",\n\t\"status\":\"Missing, 2301\",\n\t\"image\":\"yourothersite.com/image.png\",\n\t\"user_generated\":1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/ships",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ships"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 17:26:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				},
+				{
+					"name": "/ships/id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/ships/14",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ships",
+								"14"
+							]
+						},
+						"description": "Delete a ship by `id`.\n\n_Any character-ship relationship records associated with this ship will also be deleted._"
+					},
+					"response": [
+						{
+							"name": "localhost:3000/ships/14",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/ships/14",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"ships",
+										"14"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2-nOO9QiTIwXgNtWtBJezz8kv3SLc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 02 Dec 2019 17:26:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "OK"
+						}
+					]
+				}
+			],
+			"description": "Requests relating the the `ships` table.\n\n### Fields\n- `id` : `Integer` Ship id.\n- `name` : `String` Ship name.\n- `registry` : `String` Ship registry.\n- `class` : `String` The ship design classification.\n- `status` : `String` Current status of the ship.\n- `image` : `String` URL path to an image.\n- `user_generated` : `Integer` Specifies if the ship was generated by a user (`1`) or not (`0`).",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6c7ebc3e-51ff-40ec-a9fc-f4683f59b2fc",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "152037a9-c4e9-43a0-a444-2d7dc66bea09",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Species",
 			"item": [
 				{
-					"name": "localhost:3000/species",
+					"name": "/species",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -907,7 +952,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/species/id",
+					"name": "/species/id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -922,7 +967,7 @@
 								"1"
 							]
 						},
-						"description": "Get a Species by `id`."
+						"description": "Get a species by `id`."
 					},
 					"response": [
 						{
@@ -977,7 +1022,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/species",
+					"name": "/species",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1007,7 +1052,7 @@
 								"species"
 							]
 						},
-						"description": "Create a new Species record.\n\n### Parameters\n- `name` : The species name.\n- `origin` : Name of the planet where species originated."
+						"description": "Create a new species record.\n\n### Parameters\n- `name` : `String` The species name.\n- `origin` : `String` Name of the planet where species originated."
 					},
 					"response": [
 						{
@@ -1077,7 +1122,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/species",
+					"name": "/species",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -1107,7 +1152,7 @@
 								"species"
 							]
 						},
-						"description": "Update a Species record.\n\n### Parameters\n- `id` : `Integer` id of species record to update.\n- `name` : The species name.\n- `origin` : Name of the planet where species originated.\n- `user_generated` : `Integer` specifying if species was generated by a user (`1`) or not (`0`)."
+						"description": "Update a species record.\n\n### Parameters\n- `id` : `Integer` ID of species record to update.\n- `name` : `String` The species name.\n- `origin` : `String` Name of the planet where species originated.\n- `user_generated` : `Integer` Specifies if species was generated by a user (`1`) or not (`0`)."
 					},
 					"response": [
 						{
@@ -1177,7 +1222,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/species/id",
+					"name": "/species/id",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -1192,7 +1237,7 @@
 								"10"
 							]
 						},
-						"description": "Delete a Species by `id`."
+						"description": "Delete a species by `id`."
 					},
 					"response": [
 						{
@@ -1247,13 +1292,36 @@
 					]
 				}
 			],
+			"description": "Requests relating the the `species` table.\n\nThis table is referenced by character records in that each character belongs to a single species via its `species_id` property.\n\n### Fields\n- `id` : `Integer` Species id.\n- `name` : `String` The species name.\n- `origin` : `String` Name of the planet where species originated.\n- `user_generated` : `Integer` Specifies if species was generated by a user (`1`) or not (`0`).",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d7a8e9bb-949a-4757-9372-27c2aea2d35a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "434fc7d3-daf3-46e4-b848-6382a950356a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Ranks",
 			"item": [
 				{
-					"name": "localhost:3000/ranks",
+					"name": "/ranks",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -1267,7 +1335,7 @@
 								"ranks"
 							]
 						},
-						"description": "Get all Ranks."
+						"description": "Get all ranks."
 					},
 					"response": [
 						{
@@ -1321,7 +1389,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/ranks/id",
+					"name": "/ranks/id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -1336,7 +1404,7 @@
 								"1"
 							]
 						},
-						"description": "Get a Rank by `id`."
+						"description": "Get a rank by `id`."
 					},
 					"response": [
 						{
@@ -1391,7 +1459,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/ranks",
+					"name": "/ranks",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1421,7 +1489,7 @@
 								"ranks"
 							]
 						},
-						"description": "Create a new Rank.\n\n### Parameters\n- `name` - The rank's name."
+						"description": "Create a new rank.\n\n### Parameters\n- `name` - `String` The rank name."
 					},
 					"response": [
 						{
@@ -1491,7 +1559,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/ranks",
+					"name": "/ranks",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -1521,7 +1589,7 @@
 								"ranks"
 							]
 						},
-						"description": "Update a rank record.\n\n### Parameters\n- `id` : `Integer` id of the rank to update.\n- `name` : The rank's name.\n- `user_generated` : `Integer` specifying if rank was generated by a user (`1`) or not (`0`)."
+						"description": "Update a rank record.\n\n### Parameters\n- `id` : `Integer` ID of the rank to update.\n- `name` : `String` The rank name.\n- `user_generated` : `Integer` Specifies if rank was generated by a user (`1`) or not (`0`)."
 					},
 					"response": [
 						{
@@ -1591,7 +1659,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/ranks/id",
+					"name": "/ranks/id",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -1606,7 +1674,7 @@
 								"12"
 							]
 						},
-						"description": "Delete a Rank by `id`.\n\n_Any Character-Rank relationship records associated with this Rank will also be deleted._"
+						"description": "Delete a rank by `id`.\n\n_Any character-rank relationship records associated with this rank will also be deleted._"
 					},
 					"response": [
 						{
@@ -1661,13 +1729,36 @@
 					]
 				}
 			],
+			"description": "Requests relating the the `ranks` table.\n\nA character may hold several ranks over their lifetime. See the `CharacterRanks` section to work with these relationships.\n\n### Fields\n- `id` : `Integer` Rank id.\n- `name` : `String` The rank name.\n- `user_generated` : `Integer` Specifies if rank was generated by a user (`1`) or not (`0`).",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6c2a17c8-d6c5-4305-8f0b-ed1405200a4d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7a2706dd-9d92-48e8-814a-9e2198fc6824",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "CharacterShips",
 			"item": [
 				{
-					"name": "localhost:3000/characterships",
+					"name": "/characterships",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -1681,7 +1772,7 @@
 								"characterships"
 							]
 						},
-						"description": "Get all Character-Ship relationships.\n\nThese records define the relationship between a Character (`character_id`) and a Ship (`ship_id`) starting at a specific date (`effective_date`).\nThat is to say, _when_ a _character_ began serving on _ship_."
+						"description": "Get all character-ship relationships.\n\nThese records define the relationship between a character (`character_id`) and a ship (`ship_id`) starting at a specific date (`effective_date`).\nThat is to say, _when_ a _character_ began serving on a _ship_."
 					},
 					"response": [
 						{
@@ -1735,7 +1826,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/characterships/id",
+					"name": "/characterships/id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -1805,7 +1896,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/characterships/bycharacterid/id",
+					"name": "/characterships/bycharacterid/id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -1821,7 +1912,7 @@
 								"1"
 							]
 						},
-						"description": "Get all character-ship relationships by character `id`.\n\nThis call will return all Ships that the specified Character has served on."
+						"description": "Get all character-ship relationships by character `id`.\n\nThis call will return all ships that the specified character has served on."
 					},
 					"response": [
 						{
@@ -1877,7 +1968,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/characterships/byshipid/id",
+					"name": "/characterships/byshipid/id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -1893,7 +1984,7 @@
 								"1"
 							]
 						},
-						"description": "Get all character-ship relationships by Ship `id`.\n\nThis call will return all Characters that have served on the specified Ship."
+						"description": "Get all character-ship relationships by ship `id`.\n\nThis call will return all characters that have served on the specified ship."
 					},
 					"response": [
 						{
@@ -1949,7 +2040,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/characterships",
+					"name": "/characterships",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1979,7 +2070,7 @@
 								"characterships"
 							]
 						},
-						"description": "Create a new Character-Ship relationship.\n\nThis call creates a new relationship between a Character and a Ship at a specific date.\n\n### Parameters\n- `character_id` : `Integer` that points to a Character record.\n- `ship_id` : `Integer` that points to a Ship record.\n- `effective_date` : `String` date that marks the start of the relationship."
+						"description": "Create a new character-ship relationship.\n\nThis call creates a new relationship between a character and a ship at a specific date.\n\n### Parameters\n- `character_id` : `Integer` Character id.\n- `ship_id` : `Integer` Ship id.\n- `effective_date` : `String` Date that marks the start of the relationship."
 					},
 					"response": [
 						{
@@ -2049,7 +2140,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/characterships",
+					"name": "/characterships",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -2079,7 +2170,7 @@
 								"characterships"
 							]
 						},
-						"description": "Update a Character-Ship relationship.\n\n### Parameters\n- `id` : `Integer` id of the record to update.\n- `character_id` : `Integer` that points to a Character record.\n- `ship_id` : `Integer` that points to a Ship record.\n- `effective_date` : `String` date that marks the start of the relationship."
+						"description": "Update a character-ship relationship.\n\n### Parameters\n- `id` : `Integer` ID of the record to update.\n- `character_id` : `Integer` Character ID.\n- `ship_id` : `Integer` Ship ID\n- `effective_date` : `String` Date that marks the start of the relationship."
 					},
 					"response": [
 						{
@@ -2149,7 +2240,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/characterships/id",
+					"name": "/characterships/id",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -2219,13 +2310,36 @@
 					]
 				}
 			],
+			"description": "Requests relating the the `character_ship` table.\n\nA character may serve aboard multiple ships over their lifetime. This section details working with these relationships. Each record contains a character id, a ship id, and the date this relationship began.\n\n### Fields\n- `id` : `Integer` ID of the record.\n- `character_id` : `Integer` ID of the character.\n- `ship_id` : `Integer` ID of the ship.\n- `effective_date` : `String` Date the character began serving on the ship.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9905e8b2-ab74-445c-aa8b-1ca78783b237",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3c069b39-4f0f-487a-ab30-1859e822cdc4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "CharacterRanks",
 			"item": [
 				{
-					"name": "localhost:3000/characterranks",
+					"name": "/characterranks",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -2239,7 +2353,7 @@
 								"characterranks"
 							]
 						},
-						"description": "Get all Character-Rank relationships.\n\nThese records define the relationship between a Character (`character_id`) and a Rank (`rank_id`) beginning on a specific date (`effective_date`)."
+						"description": "Get all character-rank relationships.\n\nThese records define the relationship between a character (`character_id`) and a rank (`rank_id`) beginning on a specific date (`effective_date`)."
 					},
 					"response": [
 						{
@@ -2293,7 +2407,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/characterranks/id",
+					"name": "/characterranks/id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -2308,7 +2422,7 @@
 								"1"
 							]
 						},
-						"description": "Get a Character-Rank relationship by `id`."
+						"description": "Get a character-rank relationship by `id`."
 					},
 					"response": [
 						{
@@ -2363,7 +2477,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/characterranks/bycharacterid/id",
+					"name": "/characterranks/bycharacterid/id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -2379,7 +2493,7 @@
 								"1"
 							]
 						},
-						"description": "Get all character-rank relationships by character id.\n\nThis call will return all Ranks that the specified Character has held, and the dates these ranks too effect."
+						"description": "Get all character-rank relationships by character id.\n\nThis call will return all Ranks that the specified character has held, and the dates these ranks took effect."
 					},
 					"response": [
 						{
@@ -2435,7 +2549,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/characterranks",
+					"name": "/characterranks",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -2465,7 +2579,7 @@
 								"characterranks"
 							]
 						},
-						"description": "Create a character-rank relationship.\n\n### Parameters\n- `character_id` : `Integer` id of the character.\n- `rank_id` : `Integer` id of the rank.\n- `effective_date` : `String` date that marks the start of the relationship."
+						"description": "Create a character-rank relationship.\n\n### Parameters\n- `character_id` : `Integer` Character ID.\n- `rank_id` : `Integer` Rank ID.\n- `effective_date` : `String` Date that marks the start of the relationship."
 					},
 					"response": [
 						{
@@ -2535,7 +2649,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/characterranks",
+					"name": "/characterranks",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -2565,7 +2679,7 @@
 								"characterranks"
 							]
 						},
-						"description": "Update a character-rank relationship.\n\n### Parameters\n- `id` : `Integer` id of the record to update.\n- `character_id` : `Integer` id of the character.\n- `rank_id` : `Integer` id of the rank.\n- `effective_date` : `String` date that marks the start of the relationship."
+						"description": "Update a character-rank relationship.\n\n### Parameters\n- `id` : `Integer` ID of the record to update.\n- `character_id` : `Integer` Character id.\n- `rank_id` : `Integer` Rank id.\n- `effective_date` : `String` Date that marks the start of the relationship."
 					},
 					"response": [
 						{
@@ -2635,7 +2749,7 @@
 					]
 				},
 				{
-					"name": "localhost:3000/characterranks/id",
+					"name": "/characterranks/id",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -2650,7 +2764,7 @@
 								"31"
 							]
 						},
-						"description": "Delete a Character-Rank relationship by `id`."
+						"description": "Delete a character-rank relationship by `id`."
 					},
 					"response": [
 						{
@@ -2703,6 +2817,29 @@
 							"body": "OK"
 						}
 					]
+				}
+			],
+			"description": "Requests relating the the `character_rank` table.\n\nA character may hold many ranks over their lifetime. This section details working with these relationships. Each record contains a character id, a rank id, and the date this relationship began.\n\n### Fields\n- `id` : `Integer` ID of the record.\n- `character_id` : `Integer` ID of the character.\n- `rank_id` : `Integer` ID of the rank.\n- `effective_date` : `String` Date character attained this rank.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "819ab5cf-7867-43d3-9268-100e5bd5752e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "746ff420-1e4b-43a5-bc42-1aa7c40f5b3f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			],
 			"protocolProfileBehavior": {}
