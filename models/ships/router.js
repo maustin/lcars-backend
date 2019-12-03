@@ -48,12 +48,14 @@ router.post('/', (request, response, next) => {
 // update
 router.put('/', (request, response, next) => {
 	model.update(request.body, (error, data) => {
-		if (error)
-			next(error);
-		else if (data == 0)
-			response.sendStatus(200);
+		if (error) {
+			if (error == 404)
+				response.status(404).send(`ships id ${request.body.id} not found`);
+			else
+				next(error);
+		}
 		else
-			response.status(404).send(`ships id ${request.body.id} not found`);
+			response.sendStatus(200);
 	});
 });
 

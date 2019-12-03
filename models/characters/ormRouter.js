@@ -50,7 +50,7 @@ router.put('/', (request, response, next) => {
 	model.update(request.body, (error, data) => {
 		if (error)
 			next(error);
-		else if (data == 0)
+		else if (data)
 			response.sendStatus(200);
 		else
 			response.status(404).send(`characters id ${request.body.id} not found`);
