@@ -210,6 +210,8 @@ function runQuery(query) {
 }
 
 // For now, not using the wipes. Just trash the database if you wanna rebuild.
+// TODO: Why not delete the file in here?
+
 let queries = [buildSpeciesTable, buildRankTable, buildShipTable,
 		buildCharactersTable, buildCharacterShipTable, buildCharacterRankTable,
 		insertSpecies, insertRanks, insertShips, insertCharacters,
@@ -228,3 +230,34 @@ async function runQueries() {
 }
 
 runQueries();
+
+// Homepage
+// - Login/Create Account
+// - Profile
+// - Search
+// - About?
+// Login
+// - This could bea drop down overlay
+// - Username, password, login button
+// - Forgot link
+// Create Account
+// - Username
+// - Email
+// - Password
+// - Repeat Password
+// Profile
+// - Image
+// - Name
+// - Species
+// - Rank
+// - API key
+// About
+// - Maybe?
+// Search
+// * If not logged in, as guest
+// * Guest limits options to just searching
+// * Logged in allows creation and deletion
+// - Characters
+// - Ships
+// - Species
+
