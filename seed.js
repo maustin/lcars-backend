@@ -87,25 +87,27 @@ const insertRanks = 'INSERT INTO ranks ("name", "user_generated") VALUES '
 + '("Senior Chief Petty Officer", 0)';
 
 // name, sp_id, gender, dob, actor, image, status, user_generated
+// WORF:
+//https://vignette.wikia.nocookie.net/memoryalpha/images/4/4b/Worf%2C_2379.jpg/revision/latest?cb=20180907022953&path-prefix=en
 const insertCharacters = 'INSERT INTO characters '
 + '("name", "species_id", "gender", "dob", "actor", "image", "status", "user_generated") VALUES '
-+ '("Jean-Luc Picard", 1, "m", "July 13, 2305", "Patrick Stewart", "", "Active", 0), '
-+ '("William T. Riker", 1, "m", "2335", "Jonathan Frakes", "", "Active", 0), '
-+ '("Data", 7, "m", "February 2, 2338", "Brent Spiner", "", "Deceased, 2379", 0), '
-+ '("Geordi LaForge", 1, "m", "February 16, 2335", "LeVar Burton", "", "Active", 0), '
++ '("Jean-Luc Picard", 1, "m", "July 13, 2305", "Patrick Stewart", "https://vignette.wikia.nocookie.net/memoryalpha/images/b/bf/Jean-Luc_Picard%2C_2379.jpg/revision/latest?cb=20180924193040&path-prefix=en", "Active", 0), '
++ '("William T. Riker", 1, "m", "2335", "Jonathan Frakes", "https://vignette.wikia.nocookie.net/memoryalpha/images/c/c0/William_Riker%2C_2379.jpg/revision/latest?cb=20180906184144&path-prefix=en", "Active", 0), '
++ '("Data", 7, "m", "February 2, 2338", "Brent Spiner", "https://vignette.wikia.nocookie.net/memoryalpha/images/7/7a/Data%2C_2379.jpg/revision/latest?cb=20180924192941&path-prefix=en", "Deceased, 2379", 0), '
++ '("Geordi LaForge", 1, "m", "February 16, 2335", "LeVar Burton", "https://vignette.wikia.nocookie.net/memoryalpha/images/1/15/Geordi_La_Forge%2C_2379.jpg/revision/latest?cb=20180907022754&path-prefix=en", "Active", 0), '
 + '("Worf", 2, "m", "2340", "Michael Dorn", "", "Active", 0), '
-+ '("Beverly Crusher", 1, "f", "October 13, 2324", "Gates McFadden", "", "Active", 0), '
-+ '("Deanna Troi", 3, "f", "March 29, 2336", "Marina Sirtis", "", "Active", 0), '
-+ '("Natasha Yar", 1, "f", "2337", "Denise Crosby", "", "Deceased, 2364", 0), '
-+ '("Miles O\'Brien", 1, "m", "September 2328", "Colm Meaney", "", "Active", 0), '
-+ '("Wesley Crusher", 1, "m", "2348", "Wil Wheaton", "", "Active", 0), '
-+ '("Benjamin Sisko", 1, "m", "2332", "Avery Brooks", "", "Missing, 2375", 0), '
-+ '("Kira Nerys", 4, "f", "2343", "Nana Visitor", "", "Active", 0), '
-+ '("Jadzia Dax", 8, "f", "2341", "Terry Farrell", "", "Deceased, 2374", 0), '
-+ '("Ezri Dax", 8, "f", "", "Nicole de Boer", "", "Active", 0), '
-+ '("Julian Bashir", 9, "m", "2341", "Alexander Siddig", "", "Active", 0), '
-+ '("Odo", 6, "", "Unknown", "Rene Auberjonois", "", "Resigned, 2375", 0), '
-+ '("Quark", 5, "m", "", "Armin Shimerman", "", "Active", 0)';
++ '("Beverly Crusher", 1, "f", "October 13, 2324", "Gates McFadden", "https://vignette.wikia.nocookie.net/memoryalpha/images/e/eb/Beverly_Crusher%2C_2367.jpg/revision/latest?cb=20160323221331&path-prefix=en", "Active", 0), '
++ '("Deanna Troi", 3, "f", "March 29, 2336", "Marina Sirtis", "https://vignette.wikia.nocookie.net/memoryalpha/images/7/7b/Deanna_Troi%2C_2379.jpg/revision/latest?cb=20180906192757&path-prefix=en", "Active", 0), '
++ '("Natasha Yar", 1, "f", "2337", "Denise Crosby", "https://vignette.wikia.nocookie.net/memoryalpha/images/5/5b/Natasha_Yar%2C_2364.jpg/revision/latest?cb=20161121002748&path-prefix=en", "Deceased, 2364", 0), '
++ '("Miles O\'Brien", 1, "m", "September 2328", "Colm Meaney", "https://vignette.wikia.nocookie.net/memoryalpha/images/d/de/Miles_O%27Brien%2C_2375.jpg/revision/latest?cb=20120329223424&path-prefix=en", "Active", 0), '
++ '("Wesley Crusher", 1, "m", "2348", "Wil Wheaton", "https://media.giphy.com/media/OLPsCbh2N7QZi/giphy.gif", "Active", 0), '
++ '("Benjamin Sisko", 1, "m", "2332", "Avery Brooks", "https://vignette.wikia.nocookie.net/memoryalpha/images/3/30/Benjamin_Sisko%2C_2375.jpg/revision/latest?cb=20160406235406&path-prefix=en", "Missing, 2375", 0), '
++ '("Kira Nerys", 4, "f", "2343", "Nana Visitor", "https://vignette.wikia.nocookie.net/memoryalpha/images/7/7c/Kira_Nerys%2C_2375.jpg/revision/latest?cb=20150110005548&path-prefix=en", "Active", 0), '
++ '("Jadzia Dax", 8, "f", "2341", "Terry Farrell", "https://vignette.wikia.nocookie.net/memoryalpha/images/5/5c/Jadzia_Dax%2C_2374.jpg/revision/latest?cb=20061228060458&path-prefix=en", "Deceased, 2374", 0), '
++ '("Ezri Dax", 8, "f", "", "Nicole de Boer", "https://vignette.wikia.nocookie.net/memoryalpha/images/1/13/Ezri_Dax%2C_2375.jpg/revision/latest?cb=20120329224208&path-prefix=en", "Active", 0), '
++ '("Julian Bashir", 9, "m", "2341", "Alexander Siddig", "https://vignette.wikia.nocookie.net/memoryalpha/images/e/e2/Julian_Bashir%2C_2375.jpg/revision/latest?cb=20120329211646&path-prefix=en", "Active", 0), '
++ '("Odo", 6, "na", "Unknown", "Rene Auberjonois", "https://vignette.wikia.nocookie.net/memoryalpha/images/f/f0/Odo%2C_2375.jpg/revision/latest?cb=20120329225448&path-prefix=en", "Resigned, 2375", 0), '
++ '("Quark", 5, "m", "", "Armin Shimerman", "https://vignette.wikia.nocookie.net/memoryalpha/images/2/28/Quark%2C_2375.jpg/revision/latest?cb=20190827145039&path-prefix=en", "Active", 0)';
 
 // name, class, registry, status, image, user_generated
 const insertShips = 'INSERT INTO ships '
