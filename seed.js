@@ -87,15 +87,13 @@ const insertRanks = 'INSERT INTO ranks ("name", "user_generated") VALUES '
 + '("Senior Chief Petty Officer", 0)';
 
 // name, sp_id, gender, dob, actor, image, status, user_generated
-// WORF:
-//https://vignette.wikia.nocookie.net/memoryalpha/images/4/4b/Worf%2C_2379.jpg/revision/latest?cb=20180907022953&path-prefix=en
 const insertCharacters = 'INSERT INTO characters '
 + '("name", "species_id", "gender", "dob", "actor", "image", "status", "user_generated") VALUES '
 + '("Jean-Luc Picard", 1, "m", "July 13, 2305", "Patrick Stewart", "https://vignette.wikia.nocookie.net/memoryalpha/images/b/bf/Jean-Luc_Picard%2C_2379.jpg/revision/latest?cb=20180924193040&path-prefix=en", "Active", 0), '
 + '("William T. Riker", 1, "m", "2335", "Jonathan Frakes", "https://vignette.wikia.nocookie.net/memoryalpha/images/c/c0/William_Riker%2C_2379.jpg/revision/latest?cb=20180906184144&path-prefix=en", "Active", 0), '
 + '("Data", 7, "m", "February 2, 2338", "Brent Spiner", "https://vignette.wikia.nocookie.net/memoryalpha/images/7/7a/Data%2C_2379.jpg/revision/latest?cb=20180924192941&path-prefix=en", "Deceased, 2379", 0), '
 + '("Geordi LaForge", 1, "m", "February 16, 2335", "LeVar Burton", "https://vignette.wikia.nocookie.net/memoryalpha/images/1/15/Geordi_La_Forge%2C_2379.jpg/revision/latest?cb=20180907022754&path-prefix=en", "Active", 0), '
-+ '("Worf", 2, "m", "2340", "Michael Dorn", "", "Active", 0), '
++ '("Worf", 2, "m", "2340", "Michael Dorn", "https://vignette.wikia.nocookie.net/memoryalpha/images/4/4b/Worf%2C_2379.jpg/revision/latest?cb=20180907022953&path-prefix=en", "Active", 0), '
 + '("Beverly Crusher", 1, "f", "October 13, 2324", "Gates McFadden", "https://vignette.wikia.nocookie.net/memoryalpha/images/e/eb/Beverly_Crusher%2C_2367.jpg/revision/latest?cb=20160323221331&path-prefix=en", "Active", 0), '
 + '("Deanna Troi", 3, "f", "March 29, 2336", "Marina Sirtis", "https://vignette.wikia.nocookie.net/memoryalpha/images/7/7b/Deanna_Troi%2C_2379.jpg/revision/latest?cb=20180906192757&path-prefix=en", "Active", 0), '
 + '("Natasha Yar", 1, "f", "2337", "Denise Crosby", "https://vignette.wikia.nocookie.net/memoryalpha/images/5/5b/Natasha_Yar%2C_2364.jpg/revision/latest?cb=20161121002748&path-prefix=en", "Deceased, 2364", 0), '
