@@ -1,5 +1,24 @@
 let database = require('./database');
 
+const buildUsersTable = 'CREATE TABLE IF NOT EXISTS users ('
++ 'id INTEGER PRIMARY KEY, '
++ 'username TEXT, '
++ 'email TEXT, '
++ 'password TEXT, '
++ 'created INTEGER, '
++ 'last_login INTEGER)';
+
+const buildFlagsTable = 'CREATE TABLE IF NOT EXISTS flags ('
++ 'id INTEGER PRIMARY KEY, '
++ 'desc TEXT)';
+
+const buildUserFlagsTable = 'CREATE TABLE IF NOT EXISTS user_flags ('
++ 'id INTEGER PRIMARY KEY, '
++ 'user_id INTEGER NOT NULL, '
++ 'flag_id INTEGER NOT NULL, '
++ 'CONSTRAINT fk_USER FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE, '
++ 'CONSTRAINT fk_FLAG FOREIGN KEY (flag_id) REFERENCES flags (id) ON DELETE CASCADE)';
+
 const buildCharactersTable = 'CREATE TABLE IF NOT EXISTS characters ('
 + 'id INTEGER PRIMARY KEY, '
 + 'name TEXT NOT NULL, '
@@ -56,6 +75,11 @@ const wipeShips = 'DELETE FROM ships';
 const wipeCharacterRanks = 'DELETE FROM character_rank';
 const wipeCharacterShips = 'DELETE FROM character_ship';
 
+const insertFlags = 'INSERT INTO flags ("desc") VALUES '
++ '("Admin"), '
++ '("Moderator"), '
++ '("Can Update Any"), '
++ '("Can Delete Any")';
 
 // TODO: Consider adding Vulcan, Cardassian, Romulan, Borg
 // Name Generators:
@@ -212,8 +236,10 @@ function runQuery(query) {
 // For now, not using the wipes. Just trash the database if you wanna rebuild.
 // TODO: Why not delete the file in here?
 
-let queries = [buildSpeciesTable, buildRankTable, buildShipTable,
+let queries = [buildUsersTable, buildFlagsTable, buildUserFlagsTable,
+		buildSpeciesTable, buildRankTable, buildShipTable,
 		buildCharactersTable, buildCharacterShipTable, buildCharacterRankTable,
+		insertFlags,
 		insertSpecies, insertRanks, insertShips, insertCharacters,
 		insertCharacterRanks, insertCharacterShips];
 

@@ -2,8 +2,7 @@ let express = require('express');
 let cors = require('cors');
 let app = express();
 
-app.use(cors());
-
+let authRouter = require('./auth/router');
 let speciesRouter = require('./models/species/router');
 let ranksRouter = require('./models/ranks/router');
 let shipsRouter = require('./models/ships/router');
@@ -18,9 +17,17 @@ let ormCharactersRouter = require('./models/characters/ormRouter');
 let ormCharacterRanksRouter = require('./models/characterRanks/ormRouter');
 let ormCharacterShipsRouter = require('./models/characterShips/ormRouter');*/
 
-
+app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
+// console logging
+app.use((req, res, next) => {
+	console.log(`URL:${req.url} - METHOD:${req.method} - AT:${new Date().toLocaleString()}`);
+	next();
+})
+
+app.use('/auth', authRouter);
 app.use('/species', speciesRouter);
 app.use('/ranks', ranksRouter);
 app.use('/ships', shipsRouter);
