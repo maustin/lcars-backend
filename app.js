@@ -27,13 +27,13 @@ app.use((req, res, next) => {
 	next();
 })
 
-app.use('/auth', authRouter);
-app.use('/species', speciesRouter);
-app.use('/ranks', ranksRouter);
-app.use('/ships', shipsRouter);
-app.use('/characters', charactersRouter);
-app.use('/characterranks', characterRanksRouter);
-app.use('/characterships', characterShipsRouter);
+app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/species', speciesRouter);
+app.use('/api/v1/ranks', ranksRouter);
+app.use('/api/v1/ships', shipsRouter);
+app.use('/api/v1/characters', charactersRouter);
+app.use('/api/v1/characterranks', characterRanksRouter);
+app.use('/api/v1/characterships', characterShipsRouter);
 
 /*app.use('/orm/species', ormSpeciesRouter);
 app.use('/orm/ranks', ormRanksRouter);
