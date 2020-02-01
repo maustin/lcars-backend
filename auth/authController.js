@@ -3,6 +3,8 @@ const jwt = require('jsonwebtoken');
 const validate = require('./register');
 const usersTable = require('../models/users/model');
 
+const SECRET = process.env.AUTH_SECRET;
+
 // POST Register
 const register = (req, res) => {
 	const { errors, notValid } = validate(req.body);
@@ -112,7 +114,7 @@ const login = (req, res) => {
 
 				jwt.sign(
 					user, // payload
-					'bubbles', // secret
+					SECRET, // secret
 					{
 						expiresIn: '1hr'
 					},
