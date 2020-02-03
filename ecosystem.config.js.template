@@ -1,0 +1,23 @@
+module.exports = {
+	apps : [
+		{
+			name: "lcars-backend",
+			cwd: "/var/www/lcars/backend/",
+			script: "./index.js",
+			watch: false,
+			ignore_watch: ["database.*"],
+			env: {
+				"PORT": 1701,
+				"NODE_ENV": "development",
+				"AUTH_SECRET": "somekey"
+			},
+			env_production: {
+                                "PORT": 1701,
+                                "NODE_ENV": "production",
+                                "AUTH_SECRET": "somekey"
+                        }
+
+		}
+	]
+}
+
